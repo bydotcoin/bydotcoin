@@ -188,25 +188,25 @@ RUN set -ex && \
     rm -rf /var/lib/apt
 COPY --from=builder /src/build/release/bin /usr/local/bin/
 
-# Create electroneum user
-RUN adduser --system --group --disabled-password electroneum && \
-	mkdir -p /wallet /home/electroneum/.electroneum && \
-	chown -R electroneum:electroneum /home/electroneum/.electroneum && \
-	chown -R electroneum:electroneum /wallet
+# Create bydotcoin user
+RUN adduser --system --group --disabled-password bydotcoin && \
+	mkdir -p /wallet /home/bydotcoin/.bydotcoin && \
+	chown -R bydotcoin:bydotcoin /home/bydotcoin/.bydotcoin && \
+	chown -R bydotcoin:bydotcoin /wallet
 
 # Contains the blockchain
-VOLUME /home/electroneum/.electroneum
+VOLUME /home/bydotcoin/.bydotcoin
 
 # Generate your wallet via accessing the container and run:
 # cd /wallet
-# electroneum-wallet-cli
+# bydotcoin-wallet-cli
 VOLUME /wallet
 
 EXPOSE 26967
 EXPOSE 26968
 
-# switch to user electroneum
-USER electroneum
+# switch to user bydotcoin
+USER bydotcoin
 
-ENTRYPOINT ["electroneumd", "--p2p-bind-ip=0.0.0.0", "--p2p-bind-port=26967", "--rpc-bind-ip=0.0.0.0", "--rpc-bind-port=26968", "--non-interactive", "--confirm-external-bind"]
+ENTRYPOINT ["bydotcoind", "--p2p-bind-ip=0.0.0.0", "--p2p-bind-port=26967", "--rpc-bind-ip=0.0.0.0", "--rpc-bind-port=26968", "--non-interactive", "--confirm-external-bind"]
 
