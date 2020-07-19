@@ -1,3 +1,4 @@
+# Copyright (c) 2020, The Bydotcoin Project
 # Copyright (c) 2017-2020, The Electroneum Project
 # Copyright (c) 2014-2019, The Monero Project
 #
@@ -43,7 +44,7 @@ endif()
 cmake_minimum_required(VERSION 2.8.7)
 message(STATUS "CMake version ${CMAKE_VERSION}")
 
-project(electroneum)
+project(bydotcoin)
 
 enable_language(C ASM)
 
@@ -361,7 +362,7 @@ if(SANITIZE)
 endif()
 
 # Set default blockchain storage location:
-# memory was the default in Cryptonote before Electroneum implimented LMDB, it still works but is unneccessary.
+# memory was the default in Cryptonote before Bydotcoin implimented LMDB, it still works but is unneccessary.
 # set(DATABASE memory)
 set(DATABASE lmdb)
 
