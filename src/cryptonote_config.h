@@ -1,3 +1,4 @@
+// Copyrights(c) 2020, The Bydotcoin Project
 // Copyrights(c) 2017-2020, The Electroneum Project
 // Copyrights(c) 2014-2019, The Monero Project
 // 
@@ -144,7 +145,7 @@
 
 #define ALLOW_DEBUG_COMMANDS
 
-#define CRYPTONOTE_NAME                         "electroneum"
+#define CRYPTONOTE_NAME                         "bydotcoin"
 #define CRYPTONOTE_POOLDATA_FILENAME            "poolstate.bin"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME      "data.mdb"
 #define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME "lock.mdb"
