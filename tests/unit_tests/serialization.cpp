@@ -738,7 +738,7 @@ TEST(Serialization, portability_wallet)
     ASSERT_TRUE(epee::string_tools::pod_to_hex(address_book_row->m_address.m_spend_public_key) == "7d996b0f2db6dbb5f2a086211f2399a4a7479b2c911af307fdc3f7f61a88cb0e");
     ASSERT_TRUE(epee::string_tools::pod_to_hex(address_book_row->m_address.m_view_public_key) == "1c06bcac7082f73af10460b5f2849aded79374b2fbdaae5d9384b9b6514fddcb");
     ASSERT_TRUE(epee::string_tools::pod_to_hex(address_book_row->m_payment_id) == "393d7376d934a9a9000000000000000000000000000000000000000000000000");
-    ASSERT_TRUE(address_book_row->m_description == "testnet etn wallet");
+    ASSERT_TRUE(address_book_row->m_description == "testnet bdc wallet");
   }
 }
 

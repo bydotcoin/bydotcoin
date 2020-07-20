@@ -124,7 +124,7 @@ ge_comments = textwrap.dedent("""\
 etn_comments = textwrap.dedent("""\
     /*
      *
-     * etn specific code
+     * bdc specific code
      *
      *
     This code is from the original CryptoNote.
@@ -181,7 +181,7 @@ if a == "m":
     #so you don't get multiple "loads"
     os.system("tail -n +24 sc_reduce.c > sc.bydotcoin._reduce.c") #also good on linux
     os.system("tail -n +24 sc_muladd.c > sc.bydotcoin._muladd.c")
-    os.system("tail -n +31 sc_sub.etn.c > sc.bydotcoin._sub.etn.c") #careful with the tails if you change these files!
+    os.system("tail -n +31 sc_sub.bdc.c > sc.bydotcoin._sub.bdc.c") #careful with the tails if you change these files!
     os.system("cat sc.bydotcoin.*.c | grep -v '^#include' > sc.bydotcoin.c")
 
     #ge stuff
@@ -224,9 +224,9 @@ if a == "m":
             text_file.write(ge_comments)
     with open("sc.bydotcoin.comments", "w") as text_file:
             text_file.write(sc_comments)
-    with open("etn.bydotcoin.comments", "w") as text_file:
+    with open("bdc.bydotcoin.comments", "w") as text_file:
             text_file.write(etn_comments)
-    with open("etn.bydotcoin.predeclarations", "w") as text_file:
+    with open("bdc.bydotcoin.predeclarations", "w") as text_file:
             text_file.write(predeclarations)
 
 
@@ -239,7 +239,7 @@ if a == "m":
         text_file.write(crypto_ops_includes)
 
     #note you may have duplicates of load_3, load_4 and possibly some other functions ... 
-    os.system("cat bydotcoin.license crypto-ops.bydotcoin.includes etn.bydotcoin.predeclarations fe.bydotcoin.comments fe.bydotcoin.c sc.bydotcoin.comments sc.bydotcoin.c ge.bydotcoin.comments ge.bydotcoin.c etn.bydotcoin.comments etnSpecificOld.c > crypto-ops.c")
+    os.system("cat bydotcoin.license crypto-ops.bydotcoin.includes bdc.bydotcoin.predeclarations fe.bydotcoin.comments fe.bydotcoin.c sc.bydotcoin.comments sc.bydotcoin.c ge.bydotcoin.comments ge.bydotcoin.c bdc.bydotcoin.comments etnSpecificOld.c > crypto-ops.c")
 
     #bydotcoin specific header files
     #print("making crypto-ops-tmp.h")
