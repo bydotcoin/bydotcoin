@@ -29,8 +29,8 @@
 
 #include "blocksdat_file.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "bcutil"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "bcutil"
 
 namespace po = boost::program_options;
 

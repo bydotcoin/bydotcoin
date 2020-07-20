@@ -41,8 +41,8 @@
 #include <crtdbg.h>
 #endif
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "wallet.wallet2"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "wallet.wallet2"
 
 // workaround for a suspected bug in pthread/kernel on MacOS X
 #ifdef __APPLE__
@@ -141,7 +141,7 @@ namespace wallet_args
 
       if (command_line::get_arg(vm, command_line::arg_help))
       {
-        Print(print) << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")" << ENDL;
+        Print(print) << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")" << ENDL;
         Print(print) << wallet_args::tr("This is the command line bydotcoin wallet. It needs to connect to a bydotcoin\n"
 												  "daemon to work correctly.") << ENDL;
         Print(print) << wallet_args::tr("Usage:") << ENDL << "  " << usage;
@@ -151,7 +151,7 @@ namespace wallet_args
       }
       else if (command_line::get_arg(vm, command_line::arg_version))
       {
-        Print(print) << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")";
+        Print(print) << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")";
         should_terminate = true;
         return true;
       }
@@ -198,7 +198,7 @@ namespace wallet_args
 
     if (command_line::get_arg(vm, command_line::arg_help))
     {
-      Print(print) << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")" << ENDL;
+      Print(print) << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")" << ENDL;
       Print(print) << wallet_args::tr("This is the command line bydotcoin wallet. It needs to connect to a bydotcoin\n"
 												"daemon to work correctly.") << ENDL;
       Print(print) << wallet_args::tr("Usage:") << ENDL << "  " << usage;
@@ -207,7 +207,7 @@ namespace wallet_args
     }
     else if (command_line::get_arg(vm, command_line::arg_version))
     {
-      Print(print) << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")";
+      Print(print) << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")";
       return {boost::none, true};
     }
 
@@ -217,12 +217,12 @@ namespace wallet_args
     if (!command_line::is_arg_defaulted(vm, arg_max_concurrency))
       tools::set_max_concurrency(command_line::get_arg(vm, arg_max_concurrency));
 
-    Print(print) << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")";
+    Print(print) << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")";
 
     if (!command_line::is_arg_defaulted(vm, arg_log_level))
       MINFO("Setting log level = " << command_line::get_arg(vm, arg_log_level));
     else
-      MINFO("Setting log levels = " << getenv("ELECTRONEUM_LOGS"));
+      MINFO("Setting log levels = " << getenv("BYDOTCOIN_LOGS"));
     MINFO(wallet_args::tr("Logging to: ") << log_path);
 
     Print(print) << boost::format(wallet_args::tr("Logging to %s")) % log_path;

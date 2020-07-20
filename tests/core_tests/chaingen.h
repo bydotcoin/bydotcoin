@@ -57,8 +57,8 @@
 #include "cryptonote_basic/cryptonote_boost_serialization.h"
 #include "misc_language.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "tests.core"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "tests.core"
 
 
 

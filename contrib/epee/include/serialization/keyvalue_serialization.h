@@ -32,8 +32,8 @@
 #include "enableable.h"
 #include "keyvalue_serialization_overloads.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "serialization"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "serialization"
 
 namespace epee
 {

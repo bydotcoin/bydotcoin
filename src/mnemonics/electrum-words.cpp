@@ -63,8 +63,8 @@
 #include "language_base.h"
 #include "singleton.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "mnemonic"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "mnemonic"
 
 namespace crypto
 {

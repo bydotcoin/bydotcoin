@@ -27,8 +27,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef ELECTRONEUM_TREZOR_HPP
-#define ELECTRONEUM_TREZOR_HPP
+#ifndef BYDOTCOIN_TREZOR_HPP
+#define BYDOTCOIN_TREZOR_HPP
 
 #include "trezor/trezor_defs.hpp"
 
@@ -41,4 +41,4 @@
 #include "trezor/protocol.hpp"
 #endif
 
-#endif //ELECTRONEUM_TREZOR_HPP
+#endif //BYDOTCOIN_TREZOR_HPP

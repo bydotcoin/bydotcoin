@@ -101,7 +101,7 @@ namespace daemonizer
     }
     else
     {
-      //LOG_PRINT_L0("Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL);
+      //LOG_PRINT_L0("Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL);
       return executor.run_interactive(vm);
     }
   }

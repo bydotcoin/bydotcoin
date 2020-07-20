@@ -14,13 +14,13 @@ See also each utility's "--help" option.
 
 `$ bydotcoin-blockchain-export`
 
-This loads the existing blockchain and exports it to `$ELECTRONEUM_DATA_DIR/export/blockchain.raw`
+This loads the existing blockchain and exports it to `$BYDOTCOIN_DATA_DIR/export/blockchain.raw`
 
 ### Import the exported file
 
 `$ bydotcoin-blockchain-import`
 
-This imports blocks from `$ELECTRONEUM_DATA_DIR/export/blockchain.raw` (exported using the
+This imports blocks from `$BYDOTCOIN_DATA_DIR/export/blockchain.raw` (exported using the
 `bydotcoin-blockchain-export` tool as described above) into the current database.
 
 Defaults: `--batch on`, `--batch size 20000`, `--verify on`

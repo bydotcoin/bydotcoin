@@ -83,22 +83,22 @@ function (bydotcoin_add_library name)
 endfunction()
 
 function (bydotcoin_add_library_with_deps)
-  cmake_parse_arguments(ELECTRONEUM_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
-  source_group("${ELECTRONEUM_ADD_LIBRARY_NAME}" FILES ${ELECTRONEUM_ADD_LIBRARY_SOURCES})
+  cmake_parse_arguments(BYDOTCOIN_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
+  source_group("${BYDOTCOIN_ADD_LIBRARY_NAME}" FILES ${BYDOTCOIN_ADD_LIBRARY_SOURCES})
 
   # Define a ("virtual") object library and an actual library that links those
   # objects together. The virtual libraries can be arbitrarily combined to link
   # any subset of objects into one library archive. This is used for releasing
   # libwallet, which combines multiple components.
-  set(objlib obj_${ELECTRONEUM_ADD_LIBRARY_NAME})
-  add_library(${objlib} OBJECT ${ELECTRONEUM_ADD_LIBRARY_SOURCES})
-  add_library("${ELECTRONEUM_ADD_LIBRARY_NAME}" $<TARGET_OBJECTS:${objlib}>)
-  if (ELECTRONEUM_ADD_LIBRARY_DEPENDS)
-    add_dependencies(${objlib} ${ELECTRONEUM_ADD_LIBRARY_DEPENDS})
+  set(objlib obj_${BYDOTCOIN_ADD_LIBRARY_NAME})
+  add_library(${objlib} OBJECT ${BYDOTCOIN_ADD_LIBRARY_SOURCES})
+  add_library("${BYDOTCOIN_ADD_LIBRARY_NAME}" $<TARGET_OBJECTS:${objlib}>)
+  if (BYDOTCOIN_ADD_LIBRARY_DEPENDS)
+    add_dependencies(${objlib} ${BYDOTCOIN_ADD_LIBRARY_DEPENDS})
   endif()
-  set_property(TARGET "${ELECTRONEUM_ADD_LIBRARY_NAME}" PROPERTY FOLDER "libs")
+  set_property(TARGET "${BYDOTCOIN_ADD_LIBRARY_NAME}" PROPERTY FOLDER "libs")
   target_compile_definitions(${objlib}
-    PRIVATE $<TARGET_PROPERTY:${ELECTRONEUM_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)
+    PRIVATE $<TARGET_PROPERTY:${BYDOTCOIN_ADD_LIBRARY_NAME},INTERFACE_COMPILE_DEFINITIONS>)
 endfunction ()
 
 include(Version)

@@ -52,8 +52,8 @@
 #include "common/stack_trace.h"
 #endif // STACK_TRACE
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "daemon"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace po = boost::program_options;
 namespace bf = boost::filesystem;
@@ -174,7 +174,7 @@ int main(int argc, char const * argv[])
 
     if (command_line::get_arg(vm, command_line::arg_help))
     {
-      std::cout << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")" << ENDL << ENDL;
+      std::cout << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")" << ENDL << ENDL;
       std::cout << "Usage: " + std::string{argv[0]} + " [options|settings] [daemon_command...]" << std::endl << std::endl;
       std::cout << visible_options << std::endl;
       return 0;
@@ -183,7 +183,7 @@ int main(int argc, char const * argv[])
     // Electroneum Version
     if (command_line::get_arg(vm, command_line::arg_version))
     {
-      std::cout << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")" << ENDL;
+      std::cout << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")" << ENDL;
       return 0;
     }
 
@@ -351,7 +351,7 @@ int main(int argc, char const * argv[])
       tools::set_max_concurrency(command_line::get_arg(vm, daemon_args::arg_max_concurrency));
 
     // logging is now set up
-    MGINFO("Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")");
+    MGINFO("Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")");
 
     MINFO("Moving from main() into the daemonize now.");
 

@@ -27,8 +27,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef ELECTRONEUM_PROTOCOL_H
-#define ELECTRONEUM_PROTOCOL_H
+#ifndef BYDOTCOIN_PROTOCOL_H
+#define BYDOTCOIN_PROTOCOL_H
 
 #include "trezor_defs.hpp"
 #include "device/device_cold.hpp"
@@ -328,4 +328,4 @@ namespace tx {
 }
 
 
-#endif //ELECTRONEUM_PROTOCOL_H
+#endif //BYDOTCOIN_PROTOCOL_H

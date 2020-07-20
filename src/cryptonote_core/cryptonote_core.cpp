@@ -54,8 +54,8 @@ using namespace epee;
 #include "common/notify.h"
 #include "version.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "cn"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "cn"
 
 DISABLE_VS_WARNINGS(4355)
 
@@ -1780,7 +1780,7 @@ namespace cryptonote
     if (!tools::check_updates(software, buildtag, version, hash))
       return false;
 
-    if (tools::vercmp(version.c_str(), ELECTRONEUM_VERSION) <= 0)
+    if (tools::vercmp(version.c_str(), BYDOTCOIN_VERSION) <= 0)
     {
       m_update_available = false;
       return true;
@@ -1794,7 +1794,7 @@ namespace cryptonote
       std::vector<std::string> version_split;
       std::vector<std::string> latest_version_split;
 
-      boost::split(version_split, ELECTRONEUM_VERSION, [](char c){return c == '.';});
+      boost::split(version_split, BYDOTCOIN_VERSION, [](char c){return c == '.';});
       boost::split(latest_version_split, version, [](char c){return c == '.';});
 
       // Warninig message to update to lastest software case major version differs.

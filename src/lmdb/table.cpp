@@ -30,14 +30,14 @@ namespace lmdb
 {
     expect<MDB_dbi> table::open(MDB_txn& write_txn) const noexcept
     {
-        ELECTRONEUM_PRECOND(name != nullptr);
+        BYDOTCOIN_PRECOND(name != nullptr);
 
         MDB_dbi out;
-        ELECTRONEUM_LMDB_CHECK(mdb_dbi_open(&write_txn, name, flags, &out));
+        BYDOTCOIN_LMDB_CHECK(mdb_dbi_open(&write_txn, name, flags, &out));
         if (key_cmp && !(flags & MDB_INTEGERKEY))
-            ELECTRONEUM_LMDB_CHECK(mdb_set_compare(&write_txn, out, key_cmp));
+            BYDOTCOIN_LMDB_CHECK(mdb_set_compare(&write_txn, out, key_cmp));
         if (value_cmp && !(flags & MDB_INTEGERDUP))
-            ELECTRONEUM_LMDB_CHECK(mdb_set_dupsort(&write_txn, out, value_cmp));
+            BYDOTCOIN_LMDB_CHECK(mdb_set_dupsort(&write_txn, out, value_cmp));
         return out;
     }
 }

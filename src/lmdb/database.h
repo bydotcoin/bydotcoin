@@ -118,18 +118,18 @@ namespace lmdb
                 if (!txn)
                     return txn.error();
 
-                ELECTRONEUM_PRECOND(*txn != nullptr);
+                BYDOTCOIN_PRECOND(*txn != nullptr);
                 const auto wrote = f(*(*txn));
                 if (wrote)
                 {
-                    ELECTRONEUM_CHECK(commit(std::move(*txn)));
+                    BYDOTCOIN_CHECK(commit(std::move(*txn)));
                     return wrote;
                 }
                 if (wrote != lmdb::error(MDB_MAP_FULL))
                     return wrote;
 
                 txn->reset();
-                ELECTRONEUM_CHECK(this->resize());
+                BYDOTCOIN_CHECK(this->resize());
             }
             return {lmdb::error(MDB_MAP_FULL)};
         }

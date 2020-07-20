@@ -34,8 +34,8 @@
 #include <boost/program_options/variables_map.hpp>
 #include <string>
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "daemon"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace daemonize
 {

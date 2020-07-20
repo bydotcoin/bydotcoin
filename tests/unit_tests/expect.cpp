@@ -818,98 +818,98 @@ TEST(Expect, EqualNoCopies)
 TEST(Expect, Macros) {
     EXPECT_TRUE(
         [] () -> ::common_error {
-            ELECTRONEUM_PRECOND(true);
+            BYDOTCOIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> ::common_error {
-            ELECTRONEUM_PRECOND(false);
+            BYDOTCOIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> std::error_code {
-            ELECTRONEUM_PRECOND(true);
+            BYDOTCOIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> std::error_code {
-            ELECTRONEUM_PRECOND(false);
+            BYDOTCOIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            ELECTRONEUM_PRECOND(true);
+            BYDOTCOIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            ELECTRONEUM_PRECOND(false);
+            BYDOTCOIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            ELECTRONEUM_PRECOND(true);
+            BYDOTCOIN_PRECOND(true);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            ELECTRONEUM_PRECOND(false);
+            BYDOTCOIN_PRECOND(false);
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
 
     EXPECT_TRUE(
         [] () -> std::error_code {
-            ELECTRONEUM_CHECK(expect<void>{});
+            BYDOTCOIN_CHECK(expect<void>{});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> std::error_code {
-            ELECTRONEUM_CHECK(expect<void>{common_error::kInvalidArgument});
+            BYDOTCOIN_CHECK(expect<void>{common_error::kInvalidArgument});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            ELECTRONEUM_CHECK(expect<void>{});
+            BYDOTCOIN_CHECK(expect<void>{});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<void> {
-            ELECTRONEUM_CHECK(expect<void>{common_error::kInvalidArgument});
+            BYDOTCOIN_CHECK(expect<void>{common_error::kInvalidArgument});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            ELECTRONEUM_CHECK(expect<void>{});
+            BYDOTCOIN_CHECK(expect<void>{});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidErrorCode
     );
     EXPECT_TRUE(
         [] () -> expect<int> {
-            ELECTRONEUM_CHECK(expect<void>{common_error::kInvalidArgument});
+            BYDOTCOIN_CHECK(expect<void>{common_error::kInvalidArgument});
             return {common_error::kInvalidErrorCode};
         } () == common_error::kInvalidArgument
     );
 
-    EXPECT_NO_THROW(ELECTRONEUM_UNWRAP(success()));
-    EXPECT_NO_THROW(ELECTRONEUM_UNWRAP(expect<void>{}));
-    EXPECT_NO_THROW(ELECTRONEUM_UNWRAP(expect<int>{0}));
+    EXPECT_NO_THROW(BYDOTCOIN_UNWRAP(success()));
+    EXPECT_NO_THROW(BYDOTCOIN_UNWRAP(expect<void>{}));
+    EXPECT_NO_THROW(BYDOTCOIN_UNWRAP(expect<int>{0}));
     EXPECT_THROW(
-        ELECTRONEUM_UNWRAP(expect<void>{common_error::kInvalidArgument}), std::system_error
+        BYDOTCOIN_UNWRAP(expect<void>{common_error::kInvalidArgument}), std::system_error
     );
     EXPECT_THROW(
-        ELECTRONEUM_UNWRAP(expect<int>{common_error::kInvalidArgument}), std::system_error
+        BYDOTCOIN_UNWRAP(expect<int>{common_error::kInvalidArgument}), std::system_error
     );
 }
 

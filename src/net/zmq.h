@@ -35,7 +35,7 @@
 #include "span.h"
 
 //! If the expression is less than 0, return the current ZMQ error code.
-#define ELECTRONEUM_ZMQ_CHECK(...)                      \
+#define BYDOTCOIN_ZMQ_CHECK(...)                      \
     do                                             \
     {                                              \
         if (( __VA_ARGS__ ) < 0)                   \
@@ -43,15 +43,15 @@
     } while (0)
 
 //! Print a message followed by the current ZMQ error message.
-#define ELECTRONEUM_LOG_ZMQ_ERROR(...)                                                   \
+#define BYDOTCOIN_LOG_ZMQ_ERROR(...)                                                   \
     do                                                                          \
     {                                                                           \
         MERROR( __VA_ARGS__ << ": " << ::net::zmq::get_error_code().message()); \
     } while (0)
 
 //! Throw an exception with a custom `msg`, current ZMQ error code, filename, and line number.
-#define ELECTRONEUM_ZMQ_THROW(msg)                         \
-    ELECTRONEUM_THROW( ::net::zmq::get_error_code(), msg )
+#define BYDOTCOIN_ZMQ_THROW(msg)                         \
+    BYDOTCOIN_THROW( ::net::zmq::get_error_code(), msg )
 
 namespace net
 {

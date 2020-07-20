@@ -32,8 +32,8 @@
 #include "version.h"
 #include "daemon/command_parser_executor.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "daemon"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "daemon"
 
 namespace daemonize {
 
@@ -764,7 +764,7 @@ bool t_command_parser_executor::pop_blocks(const std::vector<std::string>& args)
 
 bool t_command_parser_executor::version(const std::vector<std::string>& args)
 {
-  std::cout << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")" << std::endl;
+  std::cout << "Electroneum '" << BYDOTCOIN_RELEASE_NAME << "' (v" << BYDOTCOIN_VERSION_FULL << ")" << std::endl;
   return true;
 }
 

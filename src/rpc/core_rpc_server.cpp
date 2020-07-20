@@ -54,8 +54,8 @@ using namespace epee;
 #include "p2p/net_node.h"
 #include "version.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "daemon.rpc"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "daemon.rpc"
 
 #define MAX_RESTRICTED_FAKE_OUTS_COUNT 40
 #define MAX_RESTRICTED_GLOBAL_FAKE_OUTS_COUNT 5000
@@ -240,14 +240,14 @@ namespace cryptonote
     if (restricted)
       res.database_size = round_up(res.database_size, 5ull* 1024 * 1024 * 1024);
     res.update_available = restricted ? false : m_core.is_update_available();
-    res.version = restricted ? "" : ELECTRONEUM_VERSION;
+    res.version = restricted ? "" : BYDOTCOIN_VERSION;
 
     res.status = CORE_RPC_STATUS_OK;
 
-    res.daemon_release_name = ELECTRONEUM_RELEASE_NAME;
-    res.daemon_version = ELECTRONEUM_VERSION;
-    res.daemon_version_full = ELECTRONEUM_VERSION_FULL;
-    res.daemon_version_tag = ELECTRONEUM_VERSION_TAG;
+    res.daemon_release_name = BYDOTCOIN_RELEASE_NAME;
+    res.daemon_version = BYDOTCOIN_VERSION;
+    res.daemon_version_full = BYDOTCOIN_VERSION_FULL;
+    res.daemon_version_tag = BYDOTCOIN_VERSION_TAG;
     return true;
   }
   //------------------------------------------------------------------------------------------------------------------------------
@@ -2124,7 +2124,7 @@ namespace cryptonote
       res.status = "Error checking for updates";
       return true;
     }
-    if (tools::vercmp(version.c_str(), ELECTRONEUM_VERSION) <= 0)
+    if (tools::vercmp(version.c_str(), BYDOTCOIN_VERSION) <= 0)
     {
       res.update = false;
       res.status = CORE_RPC_STATUS_OK;

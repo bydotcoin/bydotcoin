@@ -27,8 +27,8 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 
-#ifndef ELECTRONEUM_DEVICE_COLD_H
-#define ELECTRONEUM_DEVICE_COLD_H
+#ifndef BYDOTCOIN_DEVICE_COLD_H
+#define BYDOTCOIN_DEVICE_COLD_H
 
 #include "wallet/wallet2.h"
 #include <boost/optional/optional.hpp>
@@ -164,4 +164,4 @@ namespace hw {
   };
 }
 
-#endif //ELECTRONEUM_DEVICE_COLD_H
+#endif //BYDOTCOIN_DEVICE_COLD_H

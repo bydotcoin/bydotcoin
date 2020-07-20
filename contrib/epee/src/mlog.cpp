@@ -43,12 +43,12 @@
 #include "misc_os_dependent.h"
 #include "misc_log_ex.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "logging"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "logging"
 
 #define MLOG_BASE_FORMAT "%datetime{%Y-%M-%d %H:%m:%s.%g}\t%thread\t%level\t%logger\t%loc\t%msg"
 
-#define MLOG_LOG(x) CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,ELECTRONEUM_DEFAULT_LOG_CATEGORY) << x
+#define MLOG_LOG(x) CINFO(el::base::Writer,el::base::DispatchAction::FileOnlyLog,BYDOTCOIN_DEFAULT_LOG_CATEGORY) << x
 
 using namespace epee;
 
@@ -150,7 +150,7 @@ void mlog_configure(const std::string &filename_base, bool console, const std::s
   el::Configurations c;
   c.setGlobally(el::ConfigurationType::Filename, filename_base);
   c.setGlobally(el::ConfigurationType::ToFile, "true");
-  const char *log_format = getenv("ELECTRONEUM_LOG_FORMAT");
+  const char *log_format = getenv("BYDOTCOIN_LOG_FORMAT");
   if (!log_format)
     log_format = MLOG_BASE_FORMAT;
   c.setGlobally(el::ConfigurationType::Format, log_format);
@@ -224,7 +224,7 @@ void mlog_configure(const std::string &filename_base, bool console, const std::s
     }
   });
   mlog_set_common_prefix();
-  const char *bydotcoin_log = getenv("ELECTRONEUM_LOGS");
+  const char *bydotcoin_log = getenv("BYDOTCOIN_LOGS");
   if (!bydotcoin_log)
   {
     bydotcoin_log = get_default_categories(0);

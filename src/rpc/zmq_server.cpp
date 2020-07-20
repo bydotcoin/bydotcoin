@@ -50,7 +50,7 @@ ZmqServer::ZmqServer(RpcHandler& h) :
     context(zmq_init(num_zmq_threads))
 {
   if (!context)
-    ELECTRONEUM_ZMQ_THROW("Unable to create ZMQ context");
+    BYDOTCOIN_ZMQ_THROW("Unable to create ZMQ context");
 }
 
 ZmqServer::~ZmqServer()
@@ -71,11 +71,11 @@ void ZmqServer::serve()
 
     while (1)
     {
-      const std::string message = ELECTRONEUM_UNWRAP(net::zmq::receive(socket.get()));
+      const std::string message = BYDOTCOIN_UNWRAP(net::zmq::receive(socket.get()));
       MDEBUG("Received RPC request: \"" << message << "\"");
       const std::string& response = handler.handle(message);
 
-      ELECTRONEUM_UNWRAP(net::zmq::send(epee::strspan<std::uint8_t>(response), socket.get()));
+      BYDOTCOIN_UNWRAP(net::zmq::send(epee::strspan<std::uint8_t>(response), socket.get()));
       MDEBUG("Sent RPC reply: \"" << response << "\"");
     }
   }
@@ -111,20 +111,20 @@ bool ZmqServer::addTCPSocket(boost::string_ref address, boost::string_ref port)
   rep_socket.reset(zmq_socket(context.get(), ZMQ_REP));
   if (!rep_socket)
   {
-    ELECTRONEUM_LOG_ZMQ_ERROR("ZMQ RPC Server socket create failed");
+    BYDOTCOIN_LOG_ZMQ_ERROR("ZMQ RPC Server socket create failed");
     return false;
   }
 
   if (zmq_setsockopt(rep_socket.get(), ZMQ_MAXMSGSIZE, std::addressof(max_message_size), sizeof(max_message_size)) != 0)
   {
-    ELECTRONEUM_LOG_ZMQ_ERROR("Failed to set maximum incoming message size");
+    BYDOTCOIN_LOG_ZMQ_ERROR("Failed to set maximum incoming message size");
     return false;
   }
 
   static constexpr const int linger_value = std::chrono::milliseconds{linger_timeout}.count();
   if (zmq_setsockopt(rep_socket.get(), ZMQ_LINGER, std::addressof(linger_value), sizeof(linger_value)) != 0)
   {
-    ELECTRONEUM_LOG_ZMQ_ERROR("Failed to set linger timeout");
+    BYDOTCOIN_LOG_ZMQ_ERROR("Failed to set linger timeout");
     return false;
   }
 
@@ -140,7 +140,7 @@ bool ZmqServer::addTCPSocket(boost::string_ref address, boost::string_ref port)
 
   if (zmq_bind(rep_socket.get(), bind_address.c_str()) < 0)
   {
-    ELECTRONEUM_LOG_ZMQ_ERROR("ZMQ RPC Server bind failed");
+    BYDOTCOIN_LOG_ZMQ_ERROR("ZMQ RPC Server bind failed");
     return false;
   }
   return true;

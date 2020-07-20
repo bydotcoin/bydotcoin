@@ -56,8 +56,8 @@ namespace hw {
 
   #ifdef WITH_DEVICE_LEDGER
 
-    #undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-    #define ELECTRONEUM_DEFAULT_LOG_CATEGORY "device.ledger"
+    #undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+    #define BYDOTCOIN_DEFAULT_LOG_CATEGORY "device.ledger"
 
     /* ===================================================================== */
     /* ===                           Debug                              ==== */
@@ -407,10 +407,10 @@ namespace hw {
     bool device_ledger::reset() {
       reset_buffer();
       int offset = set_command_header_noopt(INS_RESET);
-      const size_t verlen = strlen(ELECTRONEUM_VERSION);
-      ASSERT_X(offset + verlen <= BUFFER_SEND_SIZE, "ELECTRONEUM_VERSION is too long")
-      memmove(this->buffer_send+offset, ELECTRONEUM_VERSION, verlen);
-      offset += strlen(ELECTRONEUM_VERSION);
+      const size_t verlen = strlen(BYDOTCOIN_VERSION);
+      ASSERT_X(offset + verlen <= BUFFER_SEND_SIZE, "BYDOTCOIN_VERSION is too long")
+      memmove(this->buffer_send+offset, BYDOTCOIN_VERSION, verlen);
+      offset += strlen(BYDOTCOIN_VERSION);
       this->buffer_send[4] = offset-5;
       this->length_send = offset;
       this->exchange();

@@ -30,7 +30,7 @@
 #include <type_traits>
 
 //! Executes a LMDB command, and returns errors via `lmdb::error` enum.
-#define ELECTRONEUM_LMDB_CHECK(...)         \
+#define BYDOTCOIN_LMDB_CHECK(...)         \
     do                                 \
     {                                  \
         const int err = __VA_ARGS__ ;  \

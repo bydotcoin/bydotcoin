@@ -40,8 +40,8 @@
 #include "cryptonote_config.h"
 #include "difficulty.h"
 
-#undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
-#define ELECTRONEUM_DEFAULT_LOG_CATEGORY "difficulty"
+#undef BYDOTCOIN_DEFAULT_LOG_CATEGORY
+#define BYDOTCOIN_DEFAULT_LOG_CATEGORY "difficulty"
 
 namespace cryptonote {
 

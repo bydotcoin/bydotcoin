@@ -175,7 +175,7 @@ namespace net
         expect<std::string> receive(void* const socket, const int flags)
         {
           std::string payload{};
-          ELECTRONEUM_CHECK(retry_op(do_receive{}, payload, socket, flags));
+          BYDOTCOIN_CHECK(retry_op(do_receive{}, payload, socket, flags));
           return {std::move(payload)};
         }
 
