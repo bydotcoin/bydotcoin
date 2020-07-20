@@ -59,10 +59,10 @@ endif()
 set(device_private_headers)
 
 
-electroneum_private_headers(device
+bydotcoin_private_headers(device
   ${device_private_headers})
 
-electroneum_add_library(device
+bydotcoin_add_library(device
   ${device_sources}
   ${device_headers}
   ${device_private_headers})

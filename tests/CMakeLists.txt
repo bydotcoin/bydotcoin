@@ -75,8 +75,8 @@ file(COPY
   data/wallet_9svHk1.keys
   data/wallet_9svHk1
   data/outputs
-  data/unsigned_electroneum_tx
-  data/signed_electroneum_tx
+  data/unsigned_bydotcoin_tx
+  data/signed_bydotcoin_tx
   DESTINATION data)
 
 add_subdirectory(core_tests)

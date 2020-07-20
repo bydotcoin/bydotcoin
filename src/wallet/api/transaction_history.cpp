@@ -246,4 +246,4 @@ void TransactionHistoryImpl::refresh()
 
 } // namespace
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;

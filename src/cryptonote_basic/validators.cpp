@@ -32,14 +32,14 @@
 #undef ELECTRONEUM_DEFAULT_LOG_CATEGORY
 #define ELECTRONEUM_DEFAULT_LOG_CATEGORY "Validators"
 
-namespace electroneum {
+namespace bydotcoin {
     namespace basic {
         Validator::Validator(const std::string &publicKey, uint64_t startHeight, uint64_t endHeight, string name, string domain, string page_link)
                 : publicKey(publicKey), startHeight(startHeight), endHeight(endHeight), name(name), domain(domain), page_link(page_link) {}
 
         Validator::Validator() = default;
 
-        list_update_outcome Validators::validate_and_update(electroneum::basic::v_list_struct res, bool saveToDB, bool isEmergencyUpdate) {
+        list_update_outcome Validators::validate_and_update(bydotcoin::basic::v_list_struct res, bool saveToDB, bool isEmergencyUpdate) {
 
           MGINFO("Loading Validator List...");
           LOG_PRINT_L2("Validator List Struct received: " << store_t_to_json(res));

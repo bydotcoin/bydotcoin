@@ -34,9 +34,9 @@ set(serialization_headers)
 set(serialization_private_headers
   json_object.h)
 
-electroneum_private_headers(serialization
+bydotcoin_private_headers(serialization
   ${serialization_private_headers})
-electroneum_add_library(serialization
+bydotcoin_add_library(serialization
   ${serialization_sources}
   ${serialization_headers}
   ${serialization_private_headers})

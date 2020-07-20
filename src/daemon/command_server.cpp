@@ -218,12 +218,12 @@ t_command_server::t_command_server(
     m_command_lookup.set_handler(
       "start_save_graph"
     , std::bind(&t_command_parser_executor::start_save_graph, &m_parser, p::_1)
-    , "Start save data for dr electroneum"
+    , "Start save data for dr bydotcoin"
     );
     m_command_lookup.set_handler(
       "stop_save_graph"
     , std::bind(&t_command_parser_executor::stop_save_graph, &m_parser, p::_1)
-    , "Stop save data for dr electroneum"
+    , "Stop save data for dr bydotcoin"
     );
     m_command_lookup.set_handler(
       "hard_fork_info"

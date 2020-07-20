@@ -318,5 +318,5 @@ uint64_t UnsignedTransactionImpl::minMixinCount() const
 
 } // namespace
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;
 

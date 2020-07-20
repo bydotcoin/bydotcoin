@@ -67,5 +67,5 @@ private:
 
 }
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;
 

@@ -35,13 +35,13 @@ if (WIN32 OR STATIC)
   add_definitions(-DMINIUPNP_STATICLIB)
 endif ()
 
-function (electroneum_private_headers group)
+function (bydotcoin_private_headers group)
   source_group("${group}\\Private"
     FILES
       ${ARGN})
 endfunction ()
 
-function (electroneum_install_headers subdir)
+function (bydotcoin_install_headers subdir)
   install(
     FILES       ${ARGN}
     DESTINATION "include/${subdir}"
@@ -59,7 +59,7 @@ function (enable_stack_trace target)
   endif()
 endfunction()
 
-function (electroneum_add_executable name)
+function (bydotcoin_add_executable name)
   source_group("${name}"
     FILES
       ${ARGN})
@@ -78,11 +78,11 @@ function (electroneum_add_executable name)
   enable_stack_trace("${name}")
 endfunction ()
 
-function (electroneum_add_library name)
-    electroneum_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
+function (bydotcoin_add_library name)
+    bydotcoin_add_library_with_deps(NAME "${name}" SOURCES ${ARGN})
 endfunction()
 
-function (electroneum_add_library_with_deps)
+function (bydotcoin_add_library_with_deps)
   cmake_parse_arguments(ELECTRONEUM_ADD_LIBRARY "" "NAME" "DEPENDS;SOURCES" ${ARGN})
   source_group("${ELECTRONEUM_ADD_LIBRARY_NAME}" FILES ${ELECTRONEUM_ADD_LIBRARY_SOURCES})
 
@@ -102,7 +102,7 @@ function (electroneum_add_library_with_deps)
 endfunction ()
 
 include(Version)
-electroneum_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
+bydotcoin_add_library(version SOURCES ${CMAKE_BINARY_DIR}/version.cpp DEPENDS genversion)
 
 add_subdirectory(common)
 add_subdirectory(crypto)

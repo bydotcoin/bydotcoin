@@ -236,7 +236,7 @@ int main(int argc, char const * argv[])
     }
 
     // data_dir
-    //   default: e.g. ~/.electroneum/ or ~/.electroneum/testnet
+    //   default: e.g. ~/.bydotcoin/ or ~/.bydotcoin/testnet
     //   if data-dir argument given:
     //     absolute path
     //     relative path: relative to cwd

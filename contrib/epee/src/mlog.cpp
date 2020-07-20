@@ -224,12 +224,12 @@ void mlog_configure(const std::string &filename_base, bool console, const std::s
     }
   });
   mlog_set_common_prefix();
-  const char *electroneum_log = getenv("ELECTRONEUM_LOGS");
-  if (!electroneum_log)
+  const char *bydotcoin_log = getenv("ELECTRONEUM_LOGS");
+  if (!bydotcoin_log)
   {
-    electroneum_log = get_default_categories(0);
+    bydotcoin_log = get_default_categories(0);
   }
-  mlog_set_log(electroneum_log);
+  mlog_set_log(bydotcoin_log);
 #ifdef WIN32
   EnableVTMode();
 #endif

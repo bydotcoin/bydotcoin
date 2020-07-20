@@ -89,7 +89,7 @@ TEST(AddressFromURL, Success)
   
   bool dnssec_result = false;
 
-  std::vector<std::string> addresses = tools::dns_utils::addresses_from_url("donate.electroneum.com", dnssec_result);
+  std::vector<std::string> addresses = tools::dns_utils::addresses_from_url("donate.bydotcoin.com", dnssec_result);
 
   EXPECT_EQ(1, addresses.size());
   if (addresses.size() == 1)
@@ -98,7 +98,7 @@ TEST(AddressFromURL, Success)
   }
 
   // OpenAlias address with an @ instead of first .
-  addresses = tools::dns_utils::addresses_from_url("donate@electroneum.com", dnssec_result);
+  addresses = tools::dns_utils::addresses_from_url("donate@bydotcoin.com", dnssec_result);
   EXPECT_EQ(1, addresses.size());
   if (addresses.size() == 1)
   {

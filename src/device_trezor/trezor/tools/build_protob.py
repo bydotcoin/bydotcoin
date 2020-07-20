@@ -28,7 +28,7 @@ try:
         "messages.proto",
         "messages-common.proto",
         "messages-management.proto",
-        "messages-electroneum.proto",
+        "messages-bydotcoin.proto",
     ]
 
     if args.debug_msg:

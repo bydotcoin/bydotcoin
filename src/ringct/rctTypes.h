@@ -61,7 +61,7 @@ extern "C" {
 #define DP(x)
 #endif
 
-//atomic units of electroneums
+//atomic units of bydotcoins
 #define ATOMS 64
 
 //for printing large ints

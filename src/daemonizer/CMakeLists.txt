@@ -59,9 +59,9 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
   add_definitions(-DDEBUG_TMPDIR_LOG=1)
 endif()
 
-electroneum_private_headers(daemonizer
+bydotcoin_private_headers(daemonizer
   ${daemonizer_private_headers})
-electroneum_add_library(daemonizer
+bydotcoin_add_library(daemonizer
   ${daemonizer_sources}
   ${daemonizer_headers}
   ${daemonizer_private_headers})

@@ -108,9 +108,9 @@ namespace chacha {
 // Cold Key image sync
 namespace ki {
 
-  using ElectroneumTransferDetails = messages::electroneum::ElectroneumKeyImageSyncStepRequest_ElectroneumTransferDetails;
-  using ElectroneumSubAddressIndicesList = messages::electroneum::ElectroneumKeyImageExportInitRequest_ElectroneumSubAddressIndicesList;
-  using ElectroneumExportedKeyImage = messages::electroneum::ElectroneumKeyImageSyncStepAck_ElectroneumExportedKeyImage;
+  using ElectroneumTransferDetails = messages::bydotcoin::ElectroneumKeyImageSyncStepRequest_ElectroneumTransferDetails;
+  using ElectroneumSubAddressIndicesList = messages::bydotcoin::ElectroneumKeyImageExportInitRequest_ElectroneumSubAddressIndicesList;
+  using ElectroneumExportedKeyImage = messages::bydotcoin::ElectroneumKeyImageSyncStepAck_ElectroneumExportedKeyImage;
   using exported_key_image = hw::device_cold::exported_key_image;
 
   /**
@@ -130,28 +130,28 @@ namespace ki {
    */
   void generate_commitment(std::vector<ElectroneumTransferDetails> & mtds,
                            const std::vector<tools::wallet2::transfer_details> & transfers,
-                           std::shared_ptr<messages::electroneum::ElectroneumKeyImageExportInitRequest> & req);
+                           std::shared_ptr<messages::bydotcoin::ElectroneumKeyImageExportInitRequest> & req);
 
   /**
    * Processes Live refresh step response, parses KI, checks the signature
    */
   void live_refresh_ack(const ::crypto::secret_key & view_key_priv,
                         const ::crypto::public_key& out_key,
-                        const std::shared_ptr<messages::electroneum::ElectroneumLiveRefreshStepAck> & ack,
+                        const std::shared_ptr<messages::bydotcoin::ElectroneumLiveRefreshStepAck> & ack,
                         ::cryptonote::keypair& in_ephemeral,
                         ::crypto::key_image& ki);
 }
 
 // Cold transaction signing
 namespace tx {
-  using TsxData = messages::electroneum::ElectroneumTransactionInitRequest_ElectroneumTransactionData;
-  using ElectroneumTransactionDestinationEntry = messages::electroneum::ElectroneumTransactionDestinationEntry;
-  using ElectroneumAccountPublicAddress = messages::electroneum::ElectroneumTransactionDestinationEntry_ElectroneumAccountPublicAddress;
-  using ElectroneumTransactionSourceEntry = messages::electroneum::ElectroneumTransactionSourceEntry;
-  using ElectroneumMultisigKLRki = messages::electroneum::ElectroneumTransactionSourceEntry_ElectroneumMultisigKLRki;
-  using ElectroneumOutputEntry = messages::electroneum::ElectroneumTransactionSourceEntry_ElectroneumOutputEntry;
-  using ElectroneumRctKey = messages::electroneum::ElectroneumTransactionSourceEntry_ElectroneumOutputEntry_ElectroneumRctKeyPublic;
-  using ElectroneumRsigData = messages::electroneum::ElectroneumTransactionRsigData;
+  using TsxData = messages::bydotcoin::ElectroneumTransactionInitRequest_ElectroneumTransactionData;
+  using ElectroneumTransactionDestinationEntry = messages::bydotcoin::ElectroneumTransactionDestinationEntry;
+  using ElectroneumAccountPublicAddress = messages::bydotcoin::ElectroneumTransactionDestinationEntry_ElectroneumAccountPublicAddress;
+  using ElectroneumTransactionSourceEntry = messages::bydotcoin::ElectroneumTransactionSourceEntry;
+  using ElectroneumMultisigKLRki = messages::bydotcoin::ElectroneumTransactionSourceEntry_ElectroneumMultisigKLRki;
+  using ElectroneumOutputEntry = messages::bydotcoin::ElectroneumTransactionSourceEntry_ElectroneumOutputEntry;
+  using ElectroneumRctKey = messages::bydotcoin::ElectroneumTransactionSourceEntry_ElectroneumOutputEntry_ElectroneumRctKeyPublic;
+  using ElectroneumRsigData = messages::bydotcoin::ElectroneumTransactionRsigData;
 
   using tx_construction_data = tools::wallet2::tx_construction_data;
   using unsigned_tx_set = tools::wallet2::unsigned_tx_set;
@@ -229,42 +229,42 @@ namespace tx {
     void extract_payment_id();
     void compute_integrated_indices(TsxData * tsx_data);
     bool should_compute_bp_now() const;
-    void compute_bproof(messages::electroneum::ElectroneumTransactionRsigData & rsig_data);
+    void compute_bproof(messages::bydotcoin::ElectroneumTransactionRsigData & rsig_data);
     void process_bproof(rct::Bulletproof & bproof);
 
   public:
     Signer(wallet_shim * wallet2, const unsigned_tx_set * unsigned_tx, size_t tx_idx = 0, hw::tx_aux_data * aux_data = nullptr);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionInitRequest> step_init();
-    void step_init_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionInitAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionInitRequest> step_init();
+    void step_init_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionInitAck> ack);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionSetInputRequest> step_set_input(size_t idx);
-    void step_set_input_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionSetInputAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSetInputRequest> step_set_input(size_t idx);
+    void step_set_input_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSetInputAck> ack);
 
     void sort_ki();
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionInputsPermutationRequest> step_permutation();
-    void step_permutation_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionInputsPermutationAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionInputsPermutationRequest> step_permutation();
+    void step_permutation_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionInputsPermutationAck> ack);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionInputViniRequest> step_set_vini_input(size_t idx);
-    void step_set_vini_input_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionInputViniAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionInputViniRequest> step_set_vini_input(size_t idx);
+    void step_set_vini_input_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionInputViniAck> ack);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionAllInputsSetRequest> step_all_inputs_set();
-    void step_all_inputs_set_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionAllInputsSetAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionAllInputsSetRequest> step_all_inputs_set();
+    void step_all_inputs_set_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionAllInputsSetAck> ack);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionSetOutputRequest> step_set_output(size_t idx);
-    void step_set_output_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionSetOutputAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSetOutputRequest> step_set_output(size_t idx);
+    void step_set_output_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSetOutputAck> ack);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionSetOutputRequest> step_rsig(size_t idx);
-    void step_set_rsig_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionSetOutputAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSetOutputRequest> step_rsig(size_t idx);
+    void step_set_rsig_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSetOutputAck> ack);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionAllOutSetRequest> step_all_outs_set();
-    void step_all_outs_set_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionAllOutSetAck> ack, hw::device &hwdev);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionAllOutSetRequest> step_all_outs_set();
+    void step_all_outs_set_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionAllOutSetAck> ack, hw::device &hwdev);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionSignInputRequest> step_sign_input(size_t idx);
-    void step_sign_input_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionSignInputAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSignInputRequest> step_sign_input(size_t idx);
+    void step_sign_input_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSignInputAck> ack);
 
-    std::shared_ptr<messages::electroneum::ElectroneumTransactionFinalRequest> step_final();
-    void step_final_ack(std::shared_ptr<const messages::electroneum::ElectroneumTransactionFinalAck> ack);
+    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionFinalRequest> step_final();
+    void step_final_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionFinalAck> ack);
 
     std::string store_tx_aux_info();
 
@@ -312,14 +312,14 @@ namespace tx {
   // TX Key decryption
   void load_tx_key_data(hw::device_cold::tx_key_data_t & res, const std::string & data);
 
-  std::shared_ptr<messages::electroneum::ElectroneumGetTxKeyRequest> get_tx_key(
+  std::shared_ptr<messages::bydotcoin::ElectroneumGetTxKeyRequest> get_tx_key(
       const hw::device_cold::tx_key_data_t & tx_data);
 
   void get_tx_key_ack(
       std::vector<::crypto::secret_key> & tx_keys,
       const std::string & tx_prefix_hash,
       const ::crypto::secret_key & view_key_priv,
-      std::shared_ptr<const messages::electroneum::ElectroneumGetTxKeyAck> ack
+      std::shared_ptr<const messages::bydotcoin::ElectroneumGetTxKeyAck> ack
   );
 }
 

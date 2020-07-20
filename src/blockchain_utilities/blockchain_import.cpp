@@ -643,10 +643,10 @@ bool validate_file_checksum_against_dns(std::string import_file_path) {
 
   // All four ElectroneumPulse domains have DNSSEC on and valid
   static const std::vector<std::string> dns_urls = {
-    "raw.electroneumpulse.com",
-    "raw.electroneumpulse.info",
-    "raw.electroneumpulse.net",
-    "raw.electroneumpulse.org"
+    "raw.bydotcoinpulse.com",
+    "raw.bydotcoinpulse.info",
+    "raw.bydotcoinpulse.net",
+    "raw.bydotcoinpulse.org"
   };
 
   try {
@@ -799,7 +799,7 @@ int main(int argc, char* argv[])
   m_config_folder = command_line::get_arg(vm, cryptonote::arg_data_dir);
   db_arg_str = command_line::get_arg(vm, arg_database);
 
-  mlog_configure(mlog_get_default_log_path("electroneum-blockchain-import.log"), true);
+  mlog_configure(mlog_get_default_log_path("bydotcoin-blockchain-import.log"), true);
   if (!command_line::is_arg_defaulted(vm, arg_log_level))
     mlog_set_log(command_line::get_arg(vm, arg_log_level).c_str());
   else

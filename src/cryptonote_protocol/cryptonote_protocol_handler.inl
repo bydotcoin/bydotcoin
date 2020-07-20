@@ -1,5 +1,5 @@
 /// @file
-/// @author rfree (current maintainer/user in electroneum.cc project - most of code is from CryptoNote)
+/// @author rfree (current maintainer/user in bydotcoin.cc project - most of code is from CryptoNote)
 /// @brief This is the orginal cryptonote protocol network-events handler, modified by us
 
 // Copyrights(c) 2017-2020, The Electroneum Project
@@ -529,12 +529,12 @@ namespace cryptonote
       epee::serialization::load_t_from_binary(res, res_buff);
       if(!res.serialized_v_list.empty()) {
 
-        electroneum::basic::list_update_outcome outcome = m_core.set_validators_list(res.serialized_v_list, false);
+        bydotcoin::basic::list_update_outcome outcome = m_core.set_validators_list(res.serialized_v_list, false);
 
-        if(outcome == electroneum::basic::list_update_outcome::Success) {
+        if(outcome == bydotcoin::basic::list_update_outcome::Success) {
           return true;
         }
-        else if(outcome == electroneum::basic::list_update_outcome::Old_List || outcome == electroneum::basic::list_update_outcome::Same_List){
+        else if(outcome == bydotcoin::basic::list_update_outcome::Old_List || outcome == bydotcoin::basic::list_update_outcome::Same_List){
           LOG_PRINT_CCONTEXT_L2("Peer " << context.m_connection_id << " does not have a newer list than you.");
           return true;
         }
@@ -597,15 +597,15 @@ namespace cryptonote
 
     MLOG_P2P_MESSAGE("Received NOTIFY_EMERGENCY_VALIDATORS_LIST");
       if(!arg.serialized_v_list.empty()) {
-        electroneum::basic::list_update_outcome outcome = m_core.set_validators_list(arg.serialized_v_list, true);
-        if(outcome == electroneum::basic::list_update_outcome::Emergency_Success) {
+        bydotcoin::basic::list_update_outcome outcome = m_core.set_validators_list(arg.serialized_v_list, true);
+        if(outcome == bydotcoin::basic::list_update_outcome::Emergency_Success) {
           relay_emergency_validator_list(arg, context);
           return true;
         }
         // If we receive the same emergency list within the allowed time period, we don't want to drop the peer.
         // All other outcomes prescribe dropping the peer.
-        else if(outcome != electroneum::basic::list_update_outcome::Same_Emergency_List
-                && outcome != electroneum::basic::list_update_outcome::Recent_Emergency_List) {
+        else if(outcome != bydotcoin::basic::list_update_outcome::Same_Emergency_List
+                && outcome != bydotcoin::basic::list_update_outcome::Recent_Emergency_List) {
           LOG_ERROR_CCONTEXT("Received invalid emergency Validators List. Dropping connection.");
           drop_connection(context, true, false);
         }
@@ -1130,7 +1130,7 @@ namespace cryptonote
       auto time_from_epoh = point.time_since_epoch();
       auto sec = duration_cast< seconds >( time_from_epoh ).count();*/
 
-    //epee::net_utils::network_throttle_manager::get_global_throttle_inreq().logger_handle_net("log/dr-electroneum/net/req-all.data", sec, get_avg_block_size());
+    //epee::net_utils::network_throttle_manager::get_global_throttle_inreq().logger_handle_net("log/dr-bydotcoin/net/req-all.data", sec, get_avg_block_size());
 
     if(context.m_last_response_height > arg.current_blockchain_height)
     {
@@ -2077,7 +2077,7 @@ skip:
         context.m_last_request_time = boost::posix_time::microsec_clock::universal_time();
         MLOG_P2P_MESSAGE("-->>NOTIFY_REQUEST_GET_OBJECTS: blocks.size()=" << req.blocks.size() << ", txs.size()=" << req.txs.size()
             << "requested blocks count=" << count << " / " << count_limit << " from " << span.first << ", first hash " << req.blocks.front());
-        //epee::net_utils::network_throttle_manager::get_global_throttle_inreq().logger_handle_net("log/dr-electroneum/net/req-all.data", sec, get_avg_block_size());
+        //epee::net_utils::network_throttle_manager::get_global_throttle_inreq().logger_handle_net("log/dr-bydotcoin/net/req-all.data", sec, get_avg_block_size());
 
         post_notify<NOTIFY_REQUEST_GET_OBJECTS>(req, context);
         MLOG_PEER_STATE("requesting objects");
@@ -2154,7 +2154,7 @@ skip:
 
       //std::string blob; // for calculate size of request
       //epee::serialization::store_t_to_binary(r, blob);
-      //epee::net_utils::network_throttle_manager::get_global_throttle_inreq().logger_handle_net("log/dr-electroneum/net/req-all.data", sec, get_avg_block_size());
+      //epee::net_utils::network_throttle_manager::get_global_throttle_inreq().logger_handle_net("log/dr-bydotcoin/net/req-all.data", sec, get_avg_block_size());
       //LOG_PRINT_CCONTEXT_L1("r = " << 200);
 
       context.m_last_request_time = boost::posix_time::microsec_clock::universal_time();
@@ -2196,7 +2196,7 @@ skip:
     if(m_synchronized.compare_exchange_strong(val_expected, true))
     {
       MGINFO_YELLOW(ENDL << "**********************************************************************" << ENDL
-        << "You are now synchronized with the network. You may now start electroneum-wallet-cli." << ENDL
+        << "You are now synchronized with the network. You may now start bydotcoin-wallet-cli." << ENDL
         << ENDL
         << "Use the \"help\" command to see the list of available commands." << ENDL
         << "**********************************************************************");
@@ -2552,7 +2552,7 @@ skip:
       MINFO("Target height decreasing from " << previous_target << " to " << target);
       m_core.set_target_blockchain_height(target);
       if (target == 0 && context.m_state > cryptonote_connection_context::state_before_handshake && !m_stopping)
-        MCWARNING("global", "electroneumd is now disconnected from the network");
+        MCWARNING("global", "bydotcoind is now disconnected from the network");
     }
 
     m_block_queue.flush_spans(context.m_connection_id, false);

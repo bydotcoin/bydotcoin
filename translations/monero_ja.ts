@@ -1530,7 +1530,7 @@ Transaction </source>
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="2157"/>
-        <source>Welcome to Electroneum and financial privacy. For more information, see https://getelectroneum.org/</source>
+        <source>Welcome to Electroneum and financial privacy. For more information, see https://getbydotcoin.org/</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1621,7 +1621,7 @@ Amount, Spent(&quot;T&quot;|&quot;F&quot;), &quot;frozen&quot;|&quot;locked&quot
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="2797"/>
-        <source>Donate &lt;amount&gt; to the development team (donate.getelectroneum.org).</source>
+        <source>Donate &lt;amount&gt; to the development team (donate.getbydotcoin.org).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1708,8 +1708,8 @@ If the &quot;tag_description&quot; argument is specified, the tag &lt;tag_name&g
  ask-password &lt;0|1|2   (or never|action|decrypt)&gt;
    action: ask the password before many actions such as transfer, etc
    decrypt: same as action, but keeps the spend key encrypted in memory when not needed
- unit &lt;electroneum|millinero|micronero|nanonero|piconero&gt;
-   Set the default electroneum (sub-)unit.
+ unit &lt;bydotcoin|millinero|micronero|nanonero|piconero&gt;
+   Set the default bydotcoin (sub-)unit.
  min-outputs-count [n]
    Try to keep at least that many outputs of value at least min-outputs-value.
  min-outputs-value [n]
@@ -1944,7 +1944,7 @@ Otherwise, you prove the reserve of the smallest possible amount above &lt;amoun
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="3258"/>
-        <source> (set this to support the network and to get a chance to receive new electroneum)</source>
+        <source> (set this to support the network and to get a chance to receive new bydotcoin)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2069,7 +2069,7 @@ Otherwise, you prove the reserve of the smallest possible amount above &lt;amoun
 To start synchronizing with the daemon, use the &quot;refresh&quot; command.
 Use the &quot;help&quot; command to see the list of available commands.
 Use &quot;help &lt;command&gt;&quot; to see a command&apos;s documentation.
-Always use the &quot;exit&quot; command when closing electroneum-wallet-cli to save 
+Always use the &quot;exit&quot; command when closing bydotcoin-wallet-cli to save 
 your current session&apos;s state. Otherwise, you might need to synchronize 
 your wallet again (your wallet keys are NOT at risk in any case).
 </source>
@@ -2141,7 +2141,7 @@ your wallet again (your wallet keys are NOT at risk in any case).
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="4752"/>
-        <source>Enabling this supports the network you are using, and makes you eligible for receiving new electroneum</source>
+        <source>Enabling this supports the network you are using, and makes you eligible for receiving new bydotcoin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2426,7 +2426,7 @@ This transaction (including %s change) will unlock on block %llu, in approximate
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="6834"/>
-        <source>Donating %s %s to The Electroneum Project (donate.getelectroneum.org or %s).</source>
+        <source>Donating %s %s to The Electroneum Project (donate.getbydotcoin.org or %s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3187,7 +3187,7 @@ Key Image, &quot;absolute&quot;, list of rings</source>
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="3301"/>
-        <source>electroneum, millinero, micronero, nanonero, piconero</source>
+        <source>bydotcoin, millinero, micronero, nanonero, piconero</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5213,7 +5213,7 @@ Use &quot;mms note&quot; to display the waiting notes</source>
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="9407"/>
-        <source>This is the command line electroneum wallet. It needs to connect to a electroneum
+        <source>This is the command line bydotcoin wallet. It needs to connect to a bydotcoin
 daemon to work correctly.
 WARNING: Do not reuse your Electroneum keys on another fork, UNLESS this fork has key reuse mitigations built in. Doing so will harm your privacy.</source>
         <translation type="unfinished"></translation>
@@ -5235,7 +5235,7 @@ WARNING: Do not reuse your Electroneum keys on another fork, UNLESS this fork ha
     </message>
     <message>
         <location filename="../src/simplewallet/simplewallet.cpp" line="150"/>
-        <source>The newly created transaction will not be relayed to the electroneum network</source>
+        <source>The newly created transaction will not be relayed to the bydotcoin network</source>
         <translation>新しい取引をネットワークに中継しません</translation>
     </message>
     <message>
@@ -5568,12 +5568,12 @@ WARNING: Do not reuse your Electroneum keys on another fork, UNLESS this fork ha
     </message>
     <message>
         <location filename="../src/wallet/wallet2.cpp" line="1674"/>
-        <source>Password is needed to compute key image for incoming electroneum</source>
+        <source>Password is needed to compute key image for incoming bydotcoin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/wallet/wallet2.cpp" line="1675"/>
-        <source>Invalid password: password is needed to compute key image for incoming electroneum</source>
+        <source>Invalid password: password is needed to compute key image for incoming bydotcoin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5681,7 +5681,7 @@ WARNING: Do not reuse your Electroneum keys on another fork, UNLESS this fork ha
     </message>
     <message>
         <location filename="../src/wallet/wallet_rpc_server.cpp" line="4429"/>
-        <source>This is the RPC electroneum wallet. It needs to connect to a electroneum
+        <source>This is the RPC bydotcoin wallet. It needs to connect to a bydotcoin
 daemon to work correctly.</source>
         <translation>これはElectroneumのRPCウォレットです。正しく動作させるには
 Electroneumデーモンに接続する必要があります。</translation>
@@ -5795,7 +5795,7 @@ Electroneumデーモンに接続する必要があります。</translation>
     </message>
     <message>
         <location filename="../src/wallet/wallet_args.cpp" line="144"/>
-        <source>This is the command line electroneum wallet. It needs to connect to a electroneum
+        <source>This is the command line bydotcoin wallet. It needs to connect to a bydotcoin
 daemon to work correctly.</source>
         <translation>これはElectroneumのコマンドラインウォレットです。正しく動作させるには
 Electroneumデーモンに接続する必要があります。</translation>

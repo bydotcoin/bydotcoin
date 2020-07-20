@@ -34,10 +34,10 @@ set(multisig_headers)
 set(multisig_private_headers
   multisig.h)
 
-electroneum_private_headers(multisig
+bydotcoin_private_headers(multisig
   ${multisig_private_headers})
 
-electroneum_add_library(multisig
+bydotcoin_add_library(multisig
   ${multisig_sources}
   ${multisig_headers}
   ${multisig_private_headers})

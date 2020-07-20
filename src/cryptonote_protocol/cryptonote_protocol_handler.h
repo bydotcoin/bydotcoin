@@ -1,5 +1,5 @@
 /// @file
-/// @author rfree (current maintainer/user in electroneum.cc project - most of code is from CryptoNote)
+/// @author rfree (current maintainer/user in bydotcoin.cc project - most of code is from CryptoNote)
 /// @brief This is the orginal cryptonote protocol network-events handler, modified by us
 
 // Copyrights(c) 2017-2020, The Electroneum Project

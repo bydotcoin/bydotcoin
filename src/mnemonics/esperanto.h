@@ -1098,7 +1098,7 @@ namespace Language
       "mokadi",
       "molaro",
       "momento",
-      "electroneum",
+      "bydotcoin",
       "mopso",
       "mordi",
       "moskito",

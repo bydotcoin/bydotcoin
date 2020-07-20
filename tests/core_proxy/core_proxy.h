@@ -109,7 +109,7 @@ namespace tests
     uint32_t get_blockchain_pruning_seed() const { return 0; }
     bool prune_blockchain(uint32_t pruning_seed) const { return true; }
     void set_block_cumulative_difficulty(uint64_t height, cryptonote::difficulty_type diff) {}
-    electroneum::basic::list_update_outcome set_validators_list(std::string v_list, bool isEmergencyUpdate = false) { return electroneum::basic::list_update_outcome::Emergency_Success; }
+    bydotcoin::basic::list_update_outcome set_validators_list(std::string v_list, bool isEmergencyUpdate = false) { return bydotcoin::basic::list_update_outcome::Emergency_Success; }
     bool isValidatorsListValid() { return true; }
     std::string get_validators_list() { return ""; }
   };

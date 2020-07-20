@@ -1,5 +1,5 @@
 /// @file
-/// @author rfree (current maintainer in electroneum.cc project)
+/// @author rfree (current maintainer in bydotcoin.cc project)
 /// @brief base for connection, contains e.g. the ratelimit hooks
 
 // Copyrights(c) 2017-2020, The Electroneum Project

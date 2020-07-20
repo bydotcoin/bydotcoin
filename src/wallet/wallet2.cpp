@@ -106,7 +106,7 @@ using namespace cryptonote;
 #define MULTISIG_UNSIGNED_TX_PREFIX "Electroneum multisig unsigned tx set\001"
 
 #define RECENT_OUTPUT_RATIO (0.5) // 50% of outputs are from the recent zone
-#define RECENT_OUTPUT_DAYS (1.8) // last 1.8 day makes up the recent zone (taken from electroneumlink.pdf, Miller et al)
+#define RECENT_OUTPUT_DAYS (1.8) // last 1.8 day makes up the recent zone (taken from bydotcoinlink.pdf, Miller et al)
 #define RECENT_OUTPUT_ZONE ((time_t)(RECENT_OUTPUT_DAYS * 86400))
 #define RECENT_OUTPUT_BLOCKS (RECENT_OUTPUT_DAYS * 720)
 
@@ -144,7 +144,7 @@ namespace
   std::string get_default_ringdb_path()
   {
     boost::filesystem::path dir = tools::get_default_data_dir();
-    // remove .electroneum, replace with .shared-ringdb
+    // remove .bydotcoin, replace with .shared-ringdb
     dir = dir.remove_filename();
     dir /= ".shared-ringdb";
     return dir.string();
@@ -12724,7 +12724,7 @@ std::string wallet2::make_uri(const std::string &address, const std::string &pay
     }
   }
 
-  std::string uri = "electroneum:" + address;
+  std::string uri = "bydotcoin:" + address;
   unsigned int n_fields = 0;
 
   if (!payment_id.empty())
@@ -12753,9 +12753,9 @@ std::string wallet2::make_uri(const std::string &address, const std::string &pay
 //----------------------------------------------------------------------------------------------------
 bool wallet2::parse_uri(const std::string &uri, std::string &address, std::string &payment_id, uint64_t &amount, std::string &tx_description, std::string &recipient_name, std::vector<std::string> &unknown_parameters, std::string &error)
 {
-  if (uri.substr(0, 12) != "electroneum:")
+  if (uri.substr(0, 12) != "bydotcoin:")
   {
-    error = std::string("URI has wrong scheme (expected \"electroneum:\"): ") + uri;
+    error = std::string("URI has wrong scheme (expected \"bydotcoin:\"): ") + uri;
     return false;
   }
 
@@ -13017,10 +13017,10 @@ uint64_t wallet2::get_segregation_fork_height() const
   {
     // All four ElectroneumPulse domains have DNSSEC on and valid
     static const std::vector<std::string> dns_urls = {
-        "segheights.electroneumpulse.org",
-        "segheights.electroneumpulse.net",
-        "segheights.electroneumpulse.co",
-        "segheights.electroneumpulse.se"
+        "segheights.bydotcoinpulse.org",
+        "segheights.bydotcoinpulse.net",
+        "segheights.bydotcoinpulse.co",
+        "segheights.bydotcoinpulse.se"
     };
 
     const uint64_t current_height = get_blockchain_current_height();

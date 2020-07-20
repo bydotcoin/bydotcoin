@@ -78,9 +78,9 @@ set(crypto_private_headers
   CryptonightR_JIT.h
   CryptonightR_template.h)
 
-electroneum_private_headers(cncrypto
+bydotcoin_private_headers(cncrypto
   ${crypto_private_headers})
-electroneum_add_library(cncrypto
+bydotcoin_add_library(cncrypto
   ${crypto_sources}
   ${crypto_headers}
   ${crypto_private_headers})

@@ -926,7 +926,7 @@ namespace cryptonote
     switch (decimal_point)
     {
       case 2:
-        return "electroneum";
+        return "bydotcoin";
     case 0:
         return "ecent";
       default:

@@ -398,4 +398,4 @@ void WalletManagerFactory::setLogCategories(const std::string &categories)
 
 }
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;

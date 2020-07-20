@@ -1,5 +1,5 @@
 /// @file
-/// @author rfree (current maintainer in electroneum.cc project)
+/// @author rfree (current maintainer in bydotcoin.cc project)
 /// @brief implementaion for throttling of connection (count and rate-limit speed etc)
 
 // Copyrights(c) 2017-2020, The Electroneum Project

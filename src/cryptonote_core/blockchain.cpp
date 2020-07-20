@@ -5091,7 +5091,7 @@ void Blockchain::cache_block_template(const block &b, const cryptonote::account_
   m_btc_valid = true;
 }
 
-electroneum::basic::Validator Blockchain::get_validator_by_height(uint64_t height) {
+bydotcoin::basic::Validator Blockchain::get_validator_by_height(uint64_t height) {
 
   block blk;
   get_block_by_hash(get_block_id_by_height(height), blk);

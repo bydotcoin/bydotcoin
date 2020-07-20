@@ -30,14 +30,14 @@ set(TREZOR_PROTOB_H
         trezor/messages/messages.pb.h
         trezor/messages/messages-common.pb.h
         trezor/messages/messages-management.pb.h
-        trezor/messages/messages-electroneum.pb.h
+        trezor/messages/messages-bydotcoin.pb.h
 )
 
 set(TREZOR_PROTOB_CPP
         trezor/messages/messages.pb.cc
         trezor/messages/messages-common.pb.cc
         trezor/messages/messages-management.pb.cc
-        trezor/messages/messages-electroneum.pb.cc
+        trezor/messages/messages-bydotcoin.pb.cc
 )
 
 set(trezor_headers
@@ -73,10 +73,10 @@ if(DEVICE_TREZOR_READY)
         message(STATUS "Trezor debugging enabled")
     endif()
 
-    electroneum_private_headers(device_trezor
+    bydotcoin_private_headers(device_trezor
             ${device_private_headers})
 
-    electroneum_add_library(device_trezor
+    bydotcoin_add_library(device_trezor
             ${trezor_sources}
             ${trezor_headers}
             ${trezor_private_headers})
@@ -97,7 +97,7 @@ if(DEVICE_TREZOR_READY)
 
 else()
     message(STATUS "Trezor support disabled")
-    electroneum_private_headers(device_trezor)
-    electroneum_add_library(device_trezor device_trezor.cpp)
+    bydotcoin_private_headers(device_trezor)
+    bydotcoin_add_library(device_trezor device_trezor.cpp)
     target_link_libraries(device_trezor PUBLIC cncrypto)
 endif()

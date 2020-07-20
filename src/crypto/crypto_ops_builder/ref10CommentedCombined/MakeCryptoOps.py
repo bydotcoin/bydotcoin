@@ -1,7 +1,7 @@
 #assumes you have gnu sed, osx sed might need slight syntax changeo
 #c.f. https://unix.stackexchange.com/questions/112023/how-can-i-replace-a-string-in-a-files
 
-#written by shen-noether electroneum research labs
+#written by shen-noether bydotcoin research labs
 
 import os #for copying and sed etc.
 import glob #for copy files
@@ -169,36 +169,36 @@ if a == "m":
     print(fe_comments)
     fe = glob.glob("fe*.c")
     for g in fe:
-        os.system("cp "+g+" "+g.replace("fe", "fe.electroneum."))
-    qhasmToC("fe_pow22523.c", "pow22523.h", "fe.electroneum._pow22523.c")
-    qhasmToC("fe_invert.c", "pow225521.h", "fe.electroneum._invert.c")
-    os.system("rm fe.electroneum._isnonzero.c") #since it's modified, it's in etnSpecificOld
-    os.system("cat fe.electroneum.*.c | grep -v '^#include' > fe.electroneum.c")
+        os.system("cp "+g+" "+g.replace("fe", "fe.bydotcoin."))
+    qhasmToC("fe_pow22523.c", "pow22523.h", "fe.bydotcoin._pow22523.c")
+    qhasmToC("fe_invert.c", "pow225521.h", "fe.bydotcoin._invert.c")
+    os.system("rm fe.bydotcoin._isnonzero.c") #since it's modified, it's in etnSpecificOld
+    os.system("cat fe.bydotcoin.*.c | grep -v '^#include' > fe.bydotcoin.c")
 
     #sc things
     print("\nmaking sc.c")
     print(sc_comments)
     #so you don't get multiple "loads"
-    os.system("tail -n +24 sc_reduce.c > sc.electroneum._reduce.c") #also good on linux
-    os.system("tail -n +24 sc_muladd.c > sc.electroneum._muladd.c")
-    os.system("tail -n +31 sc_sub.etn.c > sc.electroneum._sub.etn.c") #careful with the tails if you change these files!
-    os.system("cat sc.electroneum.*.c | grep -v '^#include' > sc.electroneum.c")
+    os.system("tail -n +24 sc_reduce.c > sc.bydotcoin._reduce.c") #also good on linux
+    os.system("tail -n +24 sc_muladd.c > sc.bydotcoin._muladd.c")
+    os.system("tail -n +31 sc_sub.etn.c > sc.bydotcoin._sub.etn.c") #careful with the tails if you change these files!
+    os.system("cat sc.bydotcoin.*.c | grep -v '^#include' > sc.bydotcoin.c")
 
     #ge stuff
     print("making ge.c")
     ge = glob.glob("ge*.c")
     for g in ge:
-        os.system("cp "+g+" "+g.replace("ge", "ge.electroneum."))
+        os.system("cp "+g+" "+g.replace("ge", "ge.bydotcoin."))
     print(ge_comments)
     #need to substitute the below lines for their .h files in the appropriate places
-    qhasmToC("ge_add.c", "ge_add.h", "ge.electroneum._add.c")
-    qhasmToC("ge_madd.c", "ge_madd.h", "ge.electroneum._madd.c")
-    qhasmToC("ge_sub.c", "ge_sub.h", "ge.electroneum._sub.c")
-    qhasmToC("ge_msub.c", "ge_msub.h", "ge.electroneum._msub.c")
-    qhasmToC("ge_p2_dbl.c", "ge_p2_dbl.h", "ge.electroneum._p2_dbl.c")
-    qhasmToC("ge_frombytes.c", "d.h", "ge.electroneum._frombytes.c")
-    qhasmToC("ge.electroneum._frombytes.c", "sqrtm1.h", "ge.electroneum._frombytes.c")
-    qhasmToC("ge_p3_to_cached.c", "d2.h", "ge.electroneum._p3_to_cached.c")
+    qhasmToC("ge_add.c", "ge_add.h", "ge.bydotcoin._add.c")
+    qhasmToC("ge_madd.c", "ge_madd.h", "ge.bydotcoin._madd.c")
+    qhasmToC("ge_sub.c", "ge_sub.h", "ge.bydotcoin._sub.c")
+    qhasmToC("ge_msub.c", "ge_msub.h", "ge.bydotcoin._msub.c")
+    qhasmToC("ge_p2_dbl.c", "ge_p2_dbl.h", "ge.bydotcoin._p2_dbl.c")
+    qhasmToC("ge_frombytes.c", "d.h", "ge.bydotcoin._frombytes.c")
+    qhasmToC("ge.bydotcoin._frombytes.c", "sqrtm1.h", "ge.bydotcoin._frombytes.c")
+    qhasmToC("ge_p3_to_cached.c", "d2.h", "ge.bydotcoin._p3_to_cached.c")
 
 
 
@@ -206,11 +206,11 @@ if a == "m":
     #note, base2.h is a large file!
     #also in ge_scalarmult_base ge_precomp base needs base.h included
 
-    qhasmToC("ge_double_scalarmult.c", "base2.h", "ge.electroneum._double_scalarmult.c")
-    qhasmToC("ge_scalarmult_base.c", "base.h", "ge.electroneum._scalarmult_base.c")
-    #qhasmToC("ge.electroneum._scalarmult_base.c", "base.h", "ge.electroneum._scalarmult_base.c")
-    os.system("sed -i 's/ cmov/ ge_precomp_cmov/g' ge.electroneum._scalarmult_base.c")
-    os.system("cat ge.electroneum.*.c | grep -v '^#include' > ge.electroneum.c")
+    qhasmToC("ge_double_scalarmult.c", "base2.h", "ge.bydotcoin._double_scalarmult.c")
+    qhasmToC("ge_scalarmult_base.c", "base.h", "ge.bydotcoin._scalarmult_base.c")
+    #qhasmToC("ge.bydotcoin._scalarmult_base.c", "base.h", "ge.bydotcoin._scalarmult_base.c")
+    os.system("sed -i 's/ cmov/ ge_precomp_cmov/g' ge.bydotcoin._scalarmult_base.c")
+    os.system("cat ge.bydotcoin.*.c | grep -v '^#include' > ge.bydotcoin.c")
 
 
     print("making crypto-ops.c")
@@ -218,30 +218,30 @@ if a == "m":
     #sqrtm1 things
 
     #comments
-    with open("fe.electroneum.comments", "w") as text_file:
+    with open("fe.bydotcoin.comments", "w") as text_file:
             text_file.write(fe_comments)
-    with open("ge.electroneum.comments", "w") as text_file:
+    with open("ge.bydotcoin.comments", "w") as text_file:
             text_file.write(ge_comments)
-    with open("sc.electroneum.comments", "w") as text_file:
+    with open("sc.bydotcoin.comments", "w") as text_file:
             text_file.write(sc_comments)
-    with open("etn.electroneum.comments", "w") as text_file:
+    with open("etn.bydotcoin.comments", "w") as text_file:
             text_file.write(etn_comments)
-    with open("etn.electroneum.predeclarations", "w") as text_file:
+    with open("etn.bydotcoin.predeclarations", "w") as text_file:
             text_file.write(predeclarations)
 
 
     #license
-    with open("electroneum.license", "w") as text_file:
+    with open("bydotcoin.license", "w") as text_file:
             text_file.write(license)
 
     #crypto-ops.c includes
-    with open("crypto-ops.electroneum.includes", "w") as text_file:
+    with open("crypto-ops.bydotcoin.includes", "w") as text_file:
         text_file.write(crypto_ops_includes)
 
     #note you may have duplicates of load_3, load_4 and possibly some other functions ... 
-    os.system("cat electroneum.license crypto-ops.electroneum.includes etn.electroneum.predeclarations fe.electroneum.comments fe.electroneum.c sc.electroneum.comments sc.electroneum.c ge.electroneum.comments ge.electroneum.c etn.electroneum.comments etnSpecificOld.c > crypto-ops.c")
+    os.system("cat bydotcoin.license crypto-ops.bydotcoin.includes etn.bydotcoin.predeclarations fe.bydotcoin.comments fe.bydotcoin.c sc.bydotcoin.comments sc.bydotcoin.c ge.bydotcoin.comments ge.bydotcoin.c etn.bydotcoin.comments etnSpecificOld.c > crypto-ops.c")
 
-    #electroneum specific header files
+    #bydotcoin specific header files
     #print("making crypto-ops-tmp.h")
     #os.system("cat fe.h ge.h sc.h |grep -v crypto_sign_ed25519 |grep -v fe.h > crypto-ops-tmp.h")
     #we'll just use the old header crypto-ops.h
@@ -253,10 +253,10 @@ if a == "m":
     os.system("sed -i 's/crypto_uint64/uint64_t/g' crypto-ops.c")
 
     #cleaning up 
-    os.system("rm *electroneum*")
+    os.system("rm *bydotcoin*")
 
-    #electroneum specific c files
+    #bydotcoin specific c files
 if a == "c":
     #turn the directory back into ref10
-    os.system("rm *electroneum*")
+    os.system("rm *bydotcoin*")
     os.system("rm crypto-ops.c")

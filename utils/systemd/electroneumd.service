@@ -3,15 +3,15 @@ Description=Electroneum Full Node
 After=network.target
 
 [Service]
-User=electroneum
-Group=electroneum
+User=bydotcoin
+Group=bydotcoin
 WorkingDirectory=~
 
 Type=forking
-PIDFile=/var/run/electroneumd.pid
+PIDFile=/var/run/bydotcoind.pid
 
-ExecStart=/usr/bin/electroneumd --config-file /etc/electroneumd.conf \
-    --detach --pidfile /var/run/electroneumd.pid
+ExecStart=/usr/bin/bydotcoind --config-file /etc/bydotcoind.conf \
+    --detach --pidfile /var/run/bydotcoind.pid
 
 [Install]
 WantedBy=multi-user.target

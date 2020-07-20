@@ -1,5 +1,5 @@
 /// @file
-/// @author rfree (current maintainer in electroneum.cc project)
+/// @author rfree (current maintainer in bydotcoin.cc project)
 /// @brief This is the place to implement our handlers for protocol network actions, e.g. for ratelimit for download-requests
 
 // Copyrights(c) 2017-2020, The Electroneum Project

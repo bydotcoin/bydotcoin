@@ -161,7 +161,7 @@ namespace cryptonote
   };
   static const command_line::arg_descriptor<std::string> arg_check_updates = {
     "check-updates"
-  , "Check for new versions of electroneum: [disabled|notify|download|update]"
+  , "Check for new versions of bydotcoin: [disabled|notify|download|update]"
   , "notify"
   };
   static const command_line::arg_descriptor<bool> arg_fluffy_blocks  = {
@@ -242,7 +242,7 @@ namespace cryptonote
             , "Used in conjunction with --fallback-to-pow. This flag allows you to specify the *hash* of a checkpoint that would mark the new beginning of the PoW chain agreed upon by the community"
             , ""
   };
-  //using namespace electroneum::basic;
+  //using namespace bydotcoin::basic;
 
   //-----------------------------------------------------------------------------------------------
   core::core(i_cryptonote_protocol* pprotocol):
@@ -320,7 +320,7 @@ namespace cryptonote
     return m_validators->getSerializedValidatorList();
   }
   //-----------------------------------------------------------------------------------
-  electroneum::basic::list_update_outcome core::set_validators_list(std::string v_list, bool isEmergencyUpdate) {
+  bydotcoin::basic::list_update_outcome core::set_validators_list(std::string v_list, bool isEmergencyUpdate) {
     return m_validators->setValidatorsList(v_list, true, isEmergencyUpdate);
   }
 
@@ -541,7 +541,7 @@ namespace cryptonote
       {
         MWARNING("Found old-style blockchain.bin in " << old_files.string());
         MWARNING("Electroneum now uses a new format. You can either remove blockchain.bin to start syncing");
-        MWARNING("the blockchain anew, or use electroneum-blockchain-export and electroneum-blockchain-import to");
+        MWARNING("the blockchain anew, or use bydotcoin-blockchain-export and bydotcoin-blockchain-import to");
         MWARNING("convert your existing blockchain.bin to the new format. See README.md for instructions.");
         return false;
       }
@@ -756,7 +756,7 @@ namespace cryptonote
     }
 
     if(!m_fallback_to_pow) {
-      m_validators = std::unique_ptr<electroneum::basic::Validators>(new electroneum::basic::Validators(m_blockchain_storage.get_db(), m_pprotocol, m_nettype == TESTNET));
+      m_validators = std::unique_ptr<bydotcoin::basic::Validators>(new bydotcoin::basic::Validators(m_blockchain_storage.get_db(), m_pprotocol, m_nettype == TESTNET));
       m_blockchain_storage.set_validators_list_instance(m_validators);
 
       if(m_blockchain_storage.get_current_blockchain_height() >= ((m_nettype == TESTNET ? 446674 : 589169) - 720 )) { //V8 Height - 1 day
@@ -1760,7 +1760,7 @@ namespace cryptonote
   //-----------------------------------------------------------------------------------------------
   bool core::check_updates()
   {
-    static const char software[] = "electroneum";
+    static const char software[] = "bydotcoin";
 #ifdef BUILD_TAG
     static const char buildtag[] = BOOST_PP_STRINGIZE(BUILD_TAG);
     static const char subdir[] = "cli"; // because it can never be simple

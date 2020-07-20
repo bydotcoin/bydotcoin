@@ -154,7 +154,7 @@ namespace
   const command_line::arg_descriptor<bool> arg_allow_mismatched_daemon_version = {"allow-mismatched-daemon-version", sw::tr("Allow communicating with a daemon that uses a different RPC version"), false};
   const command_line::arg_descriptor<uint64_t> arg_restore_height = {"restore-height", sw::tr("Restore from specific blockchain height"), 0};
   const command_line::arg_descriptor<std::string> arg_restore_date = {"restore-date", sw::tr("Restore from estimated blockchain height on specified date"), ""};
-  const command_line::arg_descriptor<bool> arg_do_not_relay = {"do-not-relay", sw::tr("The newly created transaction will not be relayed to the electroneum network"), false};
+  const command_line::arg_descriptor<bool> arg_do_not_relay = {"do-not-relay", sw::tr("The newly created transaction will not be relayed to the bydotcoin network"), false};
   const command_line::arg_descriptor<bool> arg_create_address_file = {"create-address-file", sw::tr("Create an address file for new wallets"), false};
   const command_line::arg_descriptor<std::string> arg_subaddress_lookahead = {"subaddress-lookahead", tools::wallet2::tr("Set subaddress lookahead sizes to <major>:<minor>"), ""};
   const command_line::arg_descriptor<bool> arg_use_english_language_names = {"use-english-language-names", sw::tr("Display English language names"), false};
@@ -2163,7 +2163,7 @@ bool simple_wallet::welcome(const std::vector<std::string> &args)
   message_writer() << tr("Flaws in Electroneum may be discovered in the future, and attacks may be developed to peek under some");
   message_writer() << tr("of the layers of privacy Electroneum provides. Be safe and practice defense in depth.");
   message_writer() << "";
-  message_writer() << tr("Welcome to Electroneum and financial privacy. For more information, see https://electroneum.com/");
+  message_writer() << tr("Welcome to Electroneum and financial privacy. For more information, see https://bydotcoin.com/");
   return true;
 }
 
@@ -2435,7 +2435,7 @@ bool simple_wallet::set_unit(const std::vector<std::string> &args/* = std::vecto
   const std::string &unit = args[1];
   unsigned int decimal_point = CRYPTONOTE_DISPLAY_DECIMAL_POINT;
 
-  if (unit == "electroneum")
+  if (unit == "bydotcoin")
     decimal_point = CRYPTONOTE_DISPLAY_DECIMAL_POINT;
   else if (unit == "ecent")
     decimal_point = 0;
@@ -4330,7 +4330,7 @@ boost::optional<epee::wipeable_string> simple_wallet::new_wallet(const boost::pr
     "To start synchronizing with the daemon, use the \"refresh\" command.\n"
     "Use the \"help\" command to see the list of available commands.\n"
     "Use \"help <command>\" to see a command's documentation.\n"
-    "Always use the \"exit\" command when closing electroneum-wallet-cli to save \n"
+    "Always use the \"exit\" command when closing bydotcoin-wallet-cli to save \n"
     "your current session's state. Otherwise, you might need to synchronize \n"
     "your wallet again (your wallet keys are NOT at risk in any case).\n")
   ;
@@ -5782,7 +5782,7 @@ bool simple_wallet::transfer_main(int transfer_type, const std::vector<std::stri
     }
     else
     {
-      if (boost::starts_with(local_args[i], "electroneum:"))
+      if (boost::starts_with(local_args[i], "bydotcoin:"))
         fail_msg_writer() << tr("Invalid last argument: ") << local_args.back() << ": " << error;
       else
         fail_msg_writer() << tr("Invalid last argument: ") << local_args.back();
@@ -6033,7 +6033,7 @@ bool simple_wallet::transfer_main(int transfer_type, const std::vector<std::stri
     }
     else if (m_wallet->multisig())
     {
-      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_electroneum_tx");
+      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
@@ -6041,7 +6041,7 @@ bool simple_wallet::transfer_main(int transfer_type, const std::vector<std::stri
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_bydotcoin_tx";
       }
     }
     else if (m_wallet->get_account().get_device().has_tx_cold_sign())
@@ -6070,7 +6070,7 @@ bool simple_wallet::transfer_main(int transfer_type, const std::vector<std::stri
     }
     else if (m_wallet->watch_only())
     {
-      bool r = m_wallet->save_tx(ptx_vector, "unsigned_electroneum_tx");
+      bool r = m_wallet->save_tx(ptx_vector, "unsigned_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
@@ -6078,7 +6078,7 @@ bool simple_wallet::transfer_main(int transfer_type, const std::vector<std::stri
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_bydotcoin_tx";
       }
     }
     else
@@ -6171,26 +6171,26 @@ bool simple_wallet::sweep_unmixable(const std::vector<std::string> &args_)
     // actually commit the transactions
     if (m_wallet->multisig())
     {
-      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_electroneum_tx");
+      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_bydotcoin_tx";
       }
     }
     else if (m_wallet->watch_only())
     {
-      bool r = m_wallet->save_tx(ptx_vector, "unsigned_electroneum_tx");
+      bool r = m_wallet->save_tx(ptx_vector, "unsigned_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_bydotcoin_tx";
       }
     }
     else
@@ -6483,14 +6483,14 @@ bool simple_wallet::sweep_main(uint64_t below, bool locked, const std::vector<st
     // actually commit the transactions
     if (m_wallet->multisig())
     {
-      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_electroneum_tx");
+      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_bydotcoin_tx";
       }
     }
     else if (m_wallet->get_account().get_device().has_tx_cold_sign())
@@ -6520,14 +6520,14 @@ bool simple_wallet::sweep_main(uint64_t below, bool locked, const std::vector<st
     }
     else if (m_wallet->watch_only())
     {
-      bool r = m_wallet->save_tx(ptx_vector, "unsigned_electroneum_tx");
+      bool r = m_wallet->save_tx(ptx_vector, "unsigned_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_bydotcoin_tx";
       }
     }
     else
@@ -6739,26 +6739,26 @@ bool simple_wallet::sweep_single(const std::vector<std::string> &args_)
     // actually commit the transactions
     if (m_wallet->multisig())
     {
-      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_electroneum_tx");
+      bool r = m_wallet->save_multisig_tx(ptx_vector, "multisig_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "multisig_bydotcoin_tx";
       }
     }
     else if (m_wallet->watch_only())
     {
-      bool r = m_wallet->save_tx(ptx_vector, "unsigned_electroneum_tx");
+      bool r = m_wallet->save_tx(ptx_vector, "unsigned_bydotcoin_tx");
       if (!r)
       {
         fail_msg_writer() << tr("Failed to write transaction(s) to file");
       }
       else
       {
-        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_electroneum_tx";
+        success_msg_writer(true) << tr("Unsigned transaction(s) successfully written to file: ") << "unsigned_bydotcoin_tx";
       }
     }
     else
@@ -7055,7 +7055,7 @@ bool simple_wallet::sign_transfer(const std::vector<std::string> &args_)
   std::vector<tools::wallet2::pending_tx> ptx;
   try
   {
-    bool r = m_wallet->sign_tx("unsigned_electroneum_tx", "signed_electroneum_tx", ptx, [&](const tools::wallet2::unsigned_tx_set &tx){ return accept_loaded_tx(tx); }, export_raw);
+    bool r = m_wallet->sign_tx("unsigned_bydotcoin_tx", "signed_bydotcoin_tx", ptx, [&](const tools::wallet2::unsigned_tx_set &tx){ return accept_loaded_tx(tx); }, export_raw);
     if (!r)
     {
       fail_msg_writer() << tr("Failed to sign transaction");
@@ -7075,7 +7075,7 @@ bool simple_wallet::sign_transfer(const std::vector<std::string> &args_)
       txids_as_text += (", ");
     txids_as_text += epee::string_tools::pod_to_hex(get_transaction_hash(t.tx));
   }
-  success_msg_writer(true) << tr("Transaction successfully signed to file ") << "signed_electroneum_tx" << ", txid " << txids_as_text;
+  success_msg_writer(true) << tr("Transaction successfully signed to file ") << "signed_bydotcoin_tx" << ", txid " << txids_as_text;
   if (export_raw)
   {
     std::string rawfiles_as_text;
@@ -7083,7 +7083,7 @@ bool simple_wallet::sign_transfer(const std::vector<std::string> &args_)
     {
       if (i > 0)
         rawfiles_as_text += ", ";
-      rawfiles_as_text += "signed_electroneum_tx_raw" + (ptx.size() == 1 ? "" : ("_" + std::to_string(i)));
+      rawfiles_as_text += "signed_bydotcoin_tx_raw" + (ptx.size() == 1 ? "" : ("_" + std::to_string(i)));
     }
     success_msg_writer(true) << tr("Transaction raw hex data exported to ") << rawfiles_as_text;
   }
@@ -7103,7 +7103,7 @@ bool simple_wallet::submit_transfer(const std::vector<std::string> &args_)
   try
   {
     std::vector<tools::wallet2::pending_tx> ptx_vector;
-    bool r = m_wallet->load_tx("signed_electroneum_tx", ptx_vector, [&](const tools::wallet2::signed_tx_set &tx){ return accept_loaded_tx(tx); });
+    bool r = m_wallet->load_tx("signed_bydotcoin_tx", ptx_vector, [&](const tools::wallet2::signed_tx_set &tx){ return accept_loaded_tx(tx); });
     if (!r)
     {
       fail_msg_writer() << tr("Failed to load transaction from file");
@@ -7253,7 +7253,7 @@ bool simple_wallet::get_tx_proof(const std::vector<std::string> &args)
   try
   {
     std::string sig_str = m_wallet->get_tx_proof(txid, info.address, info.is_subaddress, args.size() == 3 ? args[2] : "");
-    const std::string filename = "electroneum_tx_proof";
+    const std::string filename = "bydotcoin_tx_proof";
     if (epee::file_io_utils::save_string_to_file(filename, sig_str))
       success_msg_writer() << tr("signature file saved to: ") << filename;
     else
@@ -7465,7 +7465,7 @@ bool simple_wallet::get_spend_proof(const std::vector<std::string> &args)
   try
   {
     const std::string sig_str = m_wallet->get_spend_proof(txid, args.size() == 2 ? args[1] : "");
-    const std::string filename = "electroneum_spend_proof";
+    const std::string filename = "bydotcoin_spend_proof";
     if (epee::file_io_utils::save_string_to_file(filename, sig_str))
       success_msg_writer() << tr("signature file saved to: ") << filename;
     else
@@ -7554,7 +7554,7 @@ bool simple_wallet::get_reserve_proof(const std::vector<std::string> &args)
   try
   {
     const std::string sig_str = m_wallet->get_reserve_proof(account_minreserve, args.size() == 2 ? args[1] : "");
-    const std::string filename = "electroneum_reserve_proof";
+    const std::string filename = "bydotcoin_reserve_proof";
     if (epee::file_io_utils::save_string_to_file(filename, sig_str))
       success_msg_writer() << tr("signature file saved to: ") << filename;
     else
@@ -9368,7 +9368,7 @@ void simple_wallet::commit_or_save(std::vector<tools::wallet2::pending_tx>& ptx_
       cryptonote::blobdata blob;
       tx_to_blob(ptx.tx, blob);
       const std::string blob_hex = epee::string_tools::buff_to_hex_nodelimer(blob);
-      const std::string filename = "raw_electroneum_tx" + (ptx_vector.size() == 1 ? "" : ("_" + std::to_string(i++)));
+      const std::string filename = "raw_bydotcoin_tx" + (ptx_vector.size() == 1 ? "" : ("_" + std::to_string(i++)));
       if (epee::file_io_utils::save_string_to_file(filename, blob_hex))
         success_msg_writer(true) << tr("Transaction successfully saved to ") << filename << tr(", txid ") << txid;
       else
@@ -9429,12 +9429,12 @@ int main(int argc, char* argv[])
   bool should_terminate = false;
   std::tie(vm, should_terminate) = wallet_args::main(
    argc, argv,
-   "electroneum-wallet-cli [--wallet-file=<filename>|--generate-new-wallet=<filename>] [<COMMAND>]",
-    sw::tr("This is the command line electroneum wallet. It needs to connect to a electroneum\ndaemon to work correctly.\nWARNING: Do not reuse your Electroneum keys on another fork, UNLESS this fork has key reuse mitigations built in. Doing so will harm your privacy."),
+   "bydotcoin-wallet-cli [--wallet-file=<filename>|--generate-new-wallet=<filename>] [<COMMAND>]",
+    sw::tr("This is the command line bydotcoin wallet. It needs to connect to a bydotcoin\ndaemon to work correctly.\nWARNING: Do not reuse your Electroneum keys on another fork, UNLESS this fork has key reuse mitigations built in. Doing so will harm your privacy."),
     desc_params,
     positional_options,
     [](const std::string &s, bool emphasis){ tools::scoped_message_writer(emphasis ? epee::console_color_white : epee::console_color_default, true) << s; },
-    "electroneum-wallet-cli.log"
+    "bydotcoin-wallet-cli.log"
   );
 
   if (!vm)
@@ -9618,18 +9618,18 @@ void simple_wallet::list_signers(const std::vector<mms::authorized_signer> &sign
   {
     const mms::authorized_signer &signer = signers[i];
     std::string label = signer.label.empty() ? tr("<not set>") : signer.label;
-    std::string electroneum_address;
+    std::string bydotcoin_address;
     if (signer.etn_address_known)
     {
-      electroneum_address = get_account_address_as_str(m_wallet->nettype(), false, signer.etn_address);
+      bydotcoin_address = get_account_address_as_str(m_wallet->nettype(), false, signer.etn_address);
     }
     else
     {
-      electroneum_address = tr("<not set>");
+      bydotcoin_address = tr("<not set>");
     }
     std::string transport_address = signer.transport_address.empty() ? tr("<not set>") : signer.transport_address;
     message_writer() << boost::format("%2s %-20s %-s") % (i + 1) % label % transport_address;
-    message_writer() << boost::format("%2s %-20s %-s") % "" % signer.auto_config_token % electroneum_address;
+    message_writer() << boost::format("%2s %-20s %-s") % "" % signer.auto_config_token % bydotcoin_address;
     message_writer() << "";
   }
 }
@@ -9819,7 +9819,7 @@ void simple_wallet::mms_signer(const std::vector<std::string> &args)
   }
   if ((args.size() < 2) || (args.size() > 4))
   {
-    fail_msg_writer() << tr("mms signer [<number> <label> [<transport_address> [<electroneum_address>]]]");
+    fail_msg_writer() << tr("mms signer [<number> <label> [<transport_address> [<bydotcoin_address>]]]");
     return;
   }
 
@@ -9829,7 +9829,7 @@ void simple_wallet::mms_signer(const std::vector<std::string> &args)
   {
     transport_address = args[2];
   }
-  boost::optional<cryptonote::account_public_address> electroneum_address;
+  boost::optional<cryptonote::account_public_address> bydotcoin_address;
   LOCK_IDLE_SCOPE();
   mms::multisig_wallet_state state = get_multisig_wallet_state();
   if (args.size() == 4)
@@ -9841,7 +9841,7 @@ void simple_wallet::mms_signer(const std::vector<std::string> &args)
       fail_msg_writer() << tr("Invalid Electroneum address");
       return;
     }
-    electroneum_address = info.address;
+    bydotcoin_address = info.address;
     const std::vector<mms::message> &messages = ms.get_all_messages();
     if ((messages.size() > 0) || state.multisig)
     {
@@ -9849,7 +9849,7 @@ void simple_wallet::mms_signer(const std::vector<std::string> &args)
       return;
     }
   }
-  ms.set_signer(state, index, label, transport_address, electroneum_address);
+  ms.set_signer(state, index, label, transport_address, bydotcoin_address);
 }
 
 void simple_wallet::mms_list(const std::vector<std::string> &args)

@@ -258,10 +258,10 @@ namespace nodetool
   private:
     const std::vector<std::string> m_seed_nodes_list =
     {
-      "seeds.electroneumseed.com",
-      "seeds.electroneumseed.info",
-      "seeds.electroneumseed.org",
-      "seeds.electroneumseed.net",
+      "seeds.bydotcoinseed.com",
+      "seeds.bydotcoinseed.info",
+      "seeds.bydotcoinseed.org",
+      "seeds.bydotcoinseed.net",
     };
 
     bool islimitup=false;

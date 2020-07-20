@@ -128,7 +128,7 @@ namespace wallet_args
     command_line::add_arg(desc_params, arg_max_concurrency);
     command_line::add_arg(desc_params, arg_config_file);
 
-    i18n_set_language("translations", "electroneum", lang);
+    i18n_set_language("translations", "bydotcoin", lang);
 
     po::options_description desc_all;
     desc_all.add(desc_general).add(desc_params);
@@ -142,7 +142,7 @@ namespace wallet_args
       if (command_line::get_arg(vm, command_line::arg_help))
       {
         Print(print) << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")" << ENDL;
-        Print(print) << wallet_args::tr("This is the command line electroneum wallet. It needs to connect to a electroneum\n"
+        Print(print) << wallet_args::tr("This is the command line bydotcoin wallet. It needs to connect to a bydotcoin\n"
 												  "daemon to work correctly.") << ENDL;
         Print(print) << wallet_args::tr("Usage:") << ENDL << "  " << usage;
         Print(print) << desc_all;
@@ -199,7 +199,7 @@ namespace wallet_args
     if (command_line::get_arg(vm, command_line::arg_help))
     {
       Print(print) << "Electroneum '" << ELECTRONEUM_RELEASE_NAME << "' (v" << ELECTRONEUM_VERSION_FULL << ")" << ENDL;
-      Print(print) << wallet_args::tr("This is the command line electroneum wallet. It needs to connect to a electroneum\n"
+      Print(print) << wallet_args::tr("This is the command line bydotcoin wallet. It needs to connect to a bydotcoin\n"
 												"daemon to work correctly.") << ENDL;
       Print(print) << wallet_args::tr("Usage:") << ENDL << "  " << usage;
       Print(print) << desc_all;

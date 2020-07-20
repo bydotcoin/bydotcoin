@@ -734,7 +734,7 @@ namespace cryptonote
     bool update_checkpoints(const std::string& file_path, bool check_dns);
 
     /**
-     * @brief Update the validators public key by fetching data from electroneum's endpoint
+     * @brief Update the validators public key by fetching data from bydotcoin's endpoint
      *
      * @return true if successfull
      */
@@ -1024,9 +1024,9 @@ namespace cryptonote
      */
     void set_validator_key(std::string key) { m_validator_key = boost::algorithm::unhex(key); }
 
-    void set_validators_list_instance(std::unique_ptr<electroneum::basic::Validators> &v) { m_validators = v.get(); }
+    void set_validators_list_instance(std::unique_ptr<bydotcoin::basic::Validators> &v) { m_validators = v.get(); }
 
-    electroneum::basic::Validator get_validator_by_height(uint64_t height);
+    bydotcoin::basic::Validator get_validator_by_height(uint64_t height);
 
     /**
      * @brief get blockchain nettype
@@ -1141,7 +1141,7 @@ namespace cryptonote
     std::shared_ptr<tools::Notify> m_block_notify;
     std::shared_ptr<tools::Notify> m_reorg_notify;
     
-    electroneum::basic::Validators* m_validators;
+    bydotcoin::basic::Validators* m_validators;
 
     /**
      * @brief collects the keys for all outputs being "spent" as an input
@@ -1493,7 +1493,7 @@ namespace cryptonote
      * @brief loads block hashes from compiled-in data set
      *
      * A (possibly empty) set of block hashes can be compiled into the
-     * electroneum daemon binary.  This function loads those hashes into
+     * bydotcoin daemon binary.  This function loads those hashes into
      * a useful state.
      * 
      * @param get_checkpoints if set, will be called to get checkpoints data

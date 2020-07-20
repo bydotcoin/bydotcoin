@@ -111,7 +111,7 @@ public:
    * @brief Gets a DNS address from OpenAlias format
    *
    * If the address looks good, but contains one @ symbol, replace that with a .
-   * e.g. donate@electroneum.com becomes donate.electroneum.com
+   * e.g. donate@bydotcoin.com becomes donate.bydotcoin.com
    *
    * @param oa_addr  OpenAlias address
    *

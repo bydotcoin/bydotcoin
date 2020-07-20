@@ -44,9 +44,9 @@ set(cryptonote_core_private_headers
   tx_sanity_check.h
   cryptonote_tx_utils.h)
 
-electroneum_private_headers(cryptonote_core
+bydotcoin_private_headers(cryptonote_core
   ${cryptonote_core_private_headers})
-electroneum_add_library(cryptonote_core
+bydotcoin_add_library(cryptonote_core
   ${cryptonote_core_sources}
   ${cryptonote_core_headers}
   ${cryptonote_core_private_headers})

@@ -2103,7 +2103,7 @@ namespace cryptonote
       return true;
     }
 
-    static const char software[] = "electroneum";
+    static const char software[] = "bydotcoin";
 #ifdef BUILD_TAG
     static const char buildtag[] = BOOST_PP_STRINGIZE(BUILD_TAG);
     static const char subdir[] = "cli";
@@ -2360,13 +2360,13 @@ namespace cryptonote
       if(!req.blob.empty()) {
 
       NOTIFY_EMERGENCY_VALIDATORS_LIST::request arg = AUTO_VAL_INIT(arg);
-      arg.serialized_v_list = electroneum::basic::store_t_to_json(req);
+      arg.serialized_v_list = bydotcoin::basic::store_t_to_json(req);
       cryptonote_connection_context context = boost::value_initialized<cryptonote_connection_context>();
 
 
-      electroneum::basic::list_update_outcome update_outcome = m_core.set_validators_list(arg.serialized_v_list, true);
-        if(update_outcome == electroneum::basic::list_update_outcome::Same_Emergency_List
-        || update_outcome == electroneum::basic::list_update_outcome::Emergency_Success ) {
+      bydotcoin::basic::list_update_outcome update_outcome = m_core.set_validators_list(arg.serialized_v_list, true);
+        if(update_outcome == bydotcoin::basic::list_update_outcome::Same_Emergency_List
+        || update_outcome == bydotcoin::basic::list_update_outcome::Emergency_Success ) {
         LOG_PRINT_CCONTEXT_L0("Local list is a legitimate emergency list and will now be relayed.");
 
           if(m_core.get_protocol()->relay_emergency_validator_list(arg, context)){

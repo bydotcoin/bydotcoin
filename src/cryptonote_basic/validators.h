@@ -42,7 +42,7 @@
 #include "math_helper.h"
 #include "blockchain_db/blockchain_db.h"
 
-namespace electroneum {
+namespace bydotcoin {
   namespace basic {
     using namespace std;
     using namespace std::chrono;
@@ -141,7 +141,7 @@ namespace electroneum {
         vector<std::unique_ptr<Validator>> list;
         uint64_t current_list_timestamp;
         epee::net_utils::http::http_simple_client http_client;
-        string endpoint_addr = "vl.electroneum.com";
+        string endpoint_addr = "vl.bydotcoin.com";
         string endpoint_port = "80";
         string testnet_endpoint_addr = "vl.thesecurityteam.rocks";
         string testnet_endpoint_port = "80";
@@ -234,7 +234,7 @@ namespace electroneum {
               if(!v.empty()) {
                 this->timeout = 60*60*1;
                 list_update_outcome isDBListValid = setValidatorsList(v, true);
-                if(isDBListValid == electroneum::basic::list_update_outcome::Success || isDBListValid == list_update_outcome::Same_List) {
+                if(isDBListValid == bydotcoin::basic::list_update_outcome::Success || isDBListValid == list_update_outcome::Same_List) {
                   MGINFO("Validators list loaded from database! Refresh in 1 hour");
                   return true;
                 }

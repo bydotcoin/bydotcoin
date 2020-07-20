@@ -73,7 +73,7 @@ namespace {
     std::string get_default_ringdb_path(cryptonote::network_type nettype)
     {
       boost::filesystem::path dir = tools::get_default_data_dir();
-      // remove .electroneum, replace with .shared-ringdb
+      // remove .bydotcoin, replace with .shared-ringdb
       dir = dir.remove_filename();
       dir /= ".shared-ringdb";
       if (nettype == cryptonote::TESTNET)
@@ -2422,4 +2422,4 @@ uint64_t WalletImpl::coldKeyImageSync(uint64_t &spent, uint64_t &unspent)
 }
 } // namespace
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;

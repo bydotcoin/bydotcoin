@@ -50,9 +50,9 @@ set(mnemonics_private_headers
   esperanto.h
   lojban.h)
 
-electroneum_private_headers(mnemonics
+bydotcoin_private_headers(mnemonics
   ${mnemonics_private_headers})
-electroneum_add_library(mnemonics
+bydotcoin_add_library(mnemonics
   ${mnemonics_sources}
   ${mnemonics_headers}
   ${mnemonics_private_headers})

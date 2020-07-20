@@ -37,8 +37,8 @@ except:
 N_MONERODS = 1
 N_WALLETS = 4
 
-electroneumd_base = [builddir + "/bin/electroneumd", "--regtest", "--fixed-difficulty", "1", "--offline", "--no-igd", "--p2p-bind-port", "electroneumd_p2p_port", "--rpc-bind-port", "electroneumd_rpc_port", "--zmq-rpc-bind-port", "electroneumd_zmq_port", "--non-interactive", "--disable-dns-checkpoints", "--check-updates", "disabled", "--rpc-ssl", "disabled", "--log-level", "1"]
-wallet_base = [builddir + "/bin/electroneum-wallet-rpc", "--wallet-dir", builddir + "/functional-tests-directory", "--rpc-bind-port", "wallet_port", "--disable-rpc-login", "--rpc-ssl", "disabled", "--daemon-ssl", "disabled", "--daemon-port", "18180", "--log-level", "1"]
+bydotcoind_base = [builddir + "/bin/bydotcoind", "--regtest", "--fixed-difficulty", "1", "--offline", "--no-igd", "--p2p-bind-port", "bydotcoind_p2p_port", "--rpc-bind-port", "bydotcoind_rpc_port", "--zmq-rpc-bind-port", "bydotcoind_zmq_port", "--non-interactive", "--disable-dns-checkpoints", "--check-updates", "disabled", "--rpc-ssl", "disabled", "--log-level", "1"]
+wallet_base = [builddir + "/bin/bydotcoin-wallet-rpc", "--wallet-dir", builddir + "/functional-tests-directory", "--rpc-bind-port", "wallet_port", "--disable-rpc-login", "--rpc-ssl", "disabled", "--daemon-ssl", "disabled", "--daemon-port", "18180", "--log-level", "1"]
 
 command_lines = []
 processes = []
@@ -46,8 +46,8 @@ outputs = []
 ports = []
 
 for i in range(N_MONERODS):
-  command_lines.append([str(18180+i) if x == "electroneumd_rpc_port" else str(18280+i) if x == "electroneumd_p2p_port" else str(18380+i) if x == "electroneumd_zmq_port" else x for x in electroneumd_base])
-  outputs.append(open(builddir + '/tests/functional_tests/electroneumd' + str(i) + '.log', 'a+'))
+  command_lines.append([str(18180+i) if x == "bydotcoind_rpc_port" else str(18280+i) if x == "bydotcoind_p2p_port" else str(18380+i) if x == "bydotcoind_zmq_port" else x for x in bydotcoind_base])
+  outputs.append(open(builddir + '/tests/functional_tests/bydotcoind' + str(i) + '.log', 'a+'))
   ports.append(18180+i)
 
 for i in range(N_WALLETS):

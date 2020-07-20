@@ -37,7 +37,7 @@
 #include "trezor/messages/messages.pb.h"
 #include "trezor/messages/messages-common.pb.h"
 #include "trezor/messages/messages-management.pb.h"
-#include "trezor/messages/messages-electroneum.pb.h"
+#include "trezor/messages/messages-bydotcoin.pb.h"
 #include "trezor/protocol.hpp"
 #endif
 

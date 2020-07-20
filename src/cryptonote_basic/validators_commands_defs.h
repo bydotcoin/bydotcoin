@@ -33,7 +33,7 @@
 #include "include_base_utils.h"
 #include "storages/http_abstract_invoke.h"
 
-namespace electroneum {
+namespace bydotcoin {
     namespace basic {
 
         struct json_obj {

@@ -141,4 +141,4 @@ uint64_t TransactionInfoImpl::unlockTime() const
 
 } // namespace
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;

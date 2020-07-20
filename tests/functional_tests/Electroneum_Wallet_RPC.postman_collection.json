@@ -1321,7 +1321,7 @@
 									"    var wallet_address = pm.environment.get(\"wallet_address\");",
 									"    var payment_id = pm.environment.get(\"payment_id\");",
 									"    ",
-									"    var expected_uri = \"electroneum:\" + wallet_address + \"?tx_payment_id=\" + payment_id + \"&tx_amount=0.10&recipient_name=recipient-name&tx_description=description\";",
+									"    var expected_uri = \"bydotcoin:\" + wallet_address + \"?tx_payment_id=\" + payment_id + \"&tx_amount=0.10&recipient_name=recipient-name&tx_description=description\";",
 									"    ",
 									"    pm.expect(jsonData.result.uri).to.eql(expected_uri);",
 									"    ",

@@ -62,4 +62,4 @@ void onStartup()
 
 } // namespace
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;

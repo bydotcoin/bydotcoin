@@ -229,24 +229,24 @@ namespace cryptonote
 
     // All four ElectroneumPulse domains have DNSSEC on and valid
     static const std::vector<std::string> dns_urls = {
-      "checkpoints.electroneumpulse.com",
-      "checkpoints.electroneumpulse.info",
-      "checkpoints.electroneumpulse.net",
-      "checkpoints.electroneumpulse.org"
+      "checkpoints.bydotcoinpulse.com",
+      "checkpoints.bydotcoinpulse.info",
+      "checkpoints.bydotcoinpulse.net",
+      "checkpoints.bydotcoinpulse.org"
     };
 
     static const std::vector<std::string> testnet_dns_urls = {
-      "testpoints.electroneumpulse.com",
-      "testpoints.electroneumpulse.info",
-      "testpoints.electroneumpulse.net",
-      "testpoints.electroneumpulse.org"
+      "testpoints.bydotcoinpulse.com",
+      "testpoints.bydotcoinpulse.info",
+      "testpoints.bydotcoinpulse.net",
+      "testpoints.bydotcoinpulse.org"
     };
 
     static const std::vector<std::string> stagenet_dns_urls = { 
-      "stagenetpoints.electroneumpulse.com",
-      "stagenetpoints.electroneumpulse.info",
-      "stagenetpoints.electroneumpulse.net",
-      "stagenetpoints.electroneumpulse.org"
+      "stagenetpoints.bydotcoinpulse.com",
+      "stagenetpoints.bydotcoinpulse.info",
+      "stagenetpoints.bydotcoinpulse.net",
+      "stagenetpoints.bydotcoinpulse.org"
     };
 
     if (!tools::dns_utils::load_txt_records_from_dns(records, nettype == TESTNET ? testnet_dns_urls : nettype == STAGENET ? stagenet_dns_urls : dns_urls, "checkpoints"))

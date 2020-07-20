@@ -288,7 +288,7 @@ DNSResolver::DNSResolver() : m_data(new DNSResolverData())
     // should be a valid DNSSEC record, and switch to known good
     // DNSSEC resolvers if verification fails
     bool available, valid;
-    static const char *probe_hostname = "updates.electroneumpulse.org";
+    static const char *probe_hostname = "updates.bydotcoinpulse.org";
     auto records = get_txt_record(probe_hostname, available, valid);
     if (!valid)
     {
@@ -436,9 +436,9 @@ std::string address_from_txt_record(const std::string& s)
   return {};
 }
 /**
- * @brief gets a electroneum address from the TXT record of a DNS entry
+ * @brief gets a bydotcoin address from the TXT record of a DNS entry
  *
- * gets the electroneum address from the TXT record of the DNS entry associated
+ * gets the bydotcoin address from the TXT record of the DNS entry associated
  * with <url>.  If this lookup fails, or the TXT record does not contain an
  * ETN address in the correct format, returns an empty string.  <dnssec_valid>
  * will be set true or false according to whether or not the DNS query passes
@@ -447,7 +447,7 @@ std::string address_from_txt_record(const std::string& s)
  * @param url the url to look up
  * @param dnssec_valid return-by-reference for DNSSEC status of query
  *
- * @return a electroneum address (as a string) or an empty string
+ * @return a bydotcoin address (as a string) or an empty string
  */
 std::vector<std::string> addresses_from_url(const std::string& url, bool& dnssec_valid)
 {
@@ -464,7 +464,7 @@ std::vector<std::string> addresses_from_url(const std::string& url, bool& dnssec
   }
   else dnssec_valid = false;
 
-  // for each txt record, try to find a electroneum address in it.
+  // for each txt record, try to find a bydotcoin address in it.
   for (auto& rec : records)
   {
     std::string addr = address_from_txt_record(rec);

@@ -3,7 +3,7 @@
 To run all tests, run:
 
 ```bash
-cd /path/to/electroneum
+cd /path/to/bydotcoin
 make [-jn] debug-test # where n is number of compiler processes
 ```
 
@@ -54,7 +54,7 @@ Functional tests are located under the `tests/functional` directory.
 
 First, run a regtest daemon in the offline mode and with a fixed difficulty:
 ```bash
-electroneumd --regtest --offline --fixed-difficulty 1
+bydotcoind --regtest --offline --fixed-difficulty 1
 ```
 Alternatively, you can run multiple daemons and let them connect with each other by using `--add-exclusive-node`. In this case, make sure that the same fixed difficulty is given to all the daemons.
 
@@ -63,7 +63,7 @@ Next, restore a mainnet wallet with the following seed and restore height 0 (the
 velvet lymph giddy number token physics poetry unquoted nibs useful sabotage limits benches lifestyle eden nitrogen anvil fewest avoid batch vials washing fences goat unquoted
 ```
 
-Open the wallet file with `electroneum-wallet-rpc` with RPC port 18083. Finally, start tests by invoking ./blockchain.py or ./speed.py
+Open the wallet file with `bydotcoin-wallet-rpc` with RPC port 18083. Finally, start tests by invoking ./blockchain.py or ./speed.py
 
 # Fuzz tests
 

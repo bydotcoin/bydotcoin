@@ -65,9 +65,9 @@ set(cryptonote_basic_private_headers
   validators.h
   validators_commands_defs.h)
 
-electroneum_private_headers(cryptonote_basic
+bydotcoin_private_headers(cryptonote_basic
   ${cryptonote_basic_private_headers})
-electroneum_add_library(cryptonote_basic
+bydotcoin_add_library(cryptonote_basic
   ${cryptonote_basic_sources}
   ${cryptonote_basic_headers}
   ${cryptonote_basic_private_headers})

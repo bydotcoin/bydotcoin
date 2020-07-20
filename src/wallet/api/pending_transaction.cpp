@@ -265,5 +265,5 @@ std::vector<std::string> PendingTransactionImpl::signersKeys() const {
 
 }
 
-namespace Bitelectroneum = Electroneum;
+namespace Bitbydotcoin = Electroneum;
 

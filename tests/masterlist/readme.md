@@ -26,7 +26,7 @@ The server runs on port 80 by default but you can change this inside server.js.
 Please note that in order for clients to request the list from your server rather than Electroneum's, you will need to change
 the go-to domain in the blockchain code: 
 
-        string endpoint_addr = "vl.electroneum.com";
+        string endpoint_addr = "vl.bydotcoin.com";
         string endpoint_port = "80";
         string testnet_endpoint_addr = "vl.thesecurityteam.rocks";
         string testnet_endpoint_port = "80";
