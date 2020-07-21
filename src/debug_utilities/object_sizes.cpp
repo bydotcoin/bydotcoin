@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2020, The Electroneum Project
+// Copyright (c) 2020, The Bydotcoin Project // Copyright (c) 2017-2020, The Electroneum Project
 // Copyright (c) 2017-2019, The Monero Project
 //
 // All rights reserved.
@@ -111,12 +111,12 @@ int main(int argc, char* argv[])
   SL(tools::wallet2::unsigned_tx_set);
   SL(tools::wallet2::signed_tx_set);
 
-  SL(Electroneum::WalletImpl);
-  SL(Electroneum::AddressBookRow);
-  SL(Electroneum::TransactionInfoImpl);
-  SL(Electroneum::TransactionHistoryImpl);
-  SL(Electroneum::PendingTransactionImpl);
-  SL(Electroneum::UnsignedTransactionImpl);
+  SL(Bydotcoin::WalletImpl);
+  SL(Bydotcoin::AddressBookRow);
+  SL(Bydotcoin::TransactionInfoImpl);
+  SL(Bydotcoin::TransactionHistoryImpl);
+  SL(Bydotcoin::PendingTransactionImpl);
+  SL(Bydotcoin::UnsignedTransactionImpl);
 
   return 0;
 }

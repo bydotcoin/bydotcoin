@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2020, The Electroneum Project
+// Copyright (c) 2020, The Bydotcoin Project // Copyright (c) 2017-2020, The Electroneum Project
 //
 // All rights reserved.
 //
@@ -242,7 +242,7 @@ namespace trezor {
 
     bool reset();
 
-    // Default derivation path for Electroneum
+    // Default derivation path for Bydotcoin
     static const uint32_t DEFAULT_BIP44_PATH[2];
 
     std::shared_ptr<Transport> get_transport(){

@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2020, The Electroneum Project
+// Copyright (c) 2020, The Bydotcoin Project // Copyright (c) 2017-2020, The Electroneum Project
 // Copyright (c) 2017-2019, The Monero Project
 // 
 // All rights reserved.
@@ -45,7 +45,7 @@ namespace tools
 
     MDEBUG("Checking updates for " << buildtag << " " << software);
 
-    // All four ElectroneumPulse domains have DNSSEC on and valid
+    // All four BydotcoinPulse domains have DNSSEC on and valid
     static const std::vector<std::string> dns_urls = {
       "updates.bydotcoinpulse.com",
       "updates.bydotcoinpulse.info",
