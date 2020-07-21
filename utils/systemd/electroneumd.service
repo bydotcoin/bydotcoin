@@ -1,5 +1,5 @@
 [Unit]
-Description=Electroneum Full Node
+Description=Bydotcoin Full Node
 After=network.target
 
 [Service]
