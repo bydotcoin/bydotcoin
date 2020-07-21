@@ -108,27 +108,27 @@ namespace chacha {
 // Cold Key image sync
 namespace ki {
 
-  using ElectroneumTransferDetails = messages::bydotcoin::ElectroneumKeyImageSyncStepRequest_ElectroneumTransferDetails;
+  using BydotcoinTransferDetails = messages::bydotcoin::ElectroneumKeyImageSyncStepRequest_BydotcoinTransferDetails;
   using ElectroneumSubAddressIndicesList = messages::bydotcoin::ElectroneumKeyImageExportInitRequest_ElectroneumSubAddressIndicesList;
   using ElectroneumExportedKeyImage = messages::bydotcoin::ElectroneumKeyImageSyncStepAck_ElectroneumExportedKeyImage;
   using exported_key_image = hw::device_cold::exported_key_image;
 
   /**
-   * Converts transfer details to the ElectroneumTransferDetails required for KI sync
+   * Converts transfer details to the BydotcoinTransferDetails required for KI sync
    */
   bool key_image_data(wallet_shim * wallet,
                       const std::vector<tools::wallet2::transfer_details> & transfers,
-                      std::vector<ElectroneumTransferDetails> & res);
+                      std::vector<BydotcoinTransferDetails> & res);
 
   /**
-   * Computes a hash over ElectroneumTransferDetails. Commitment used in the KI sync.
+   * Computes a hash over BydotcoinTransferDetails. Commitment used in the KI sync.
    */
-  std::string compute_hash(const ElectroneumTransferDetails & rr);
+  std::string compute_hash(const BydotcoinTransferDetails & rr);
 
   /**
    * Generates KI sync request with commitments computed.
    */
-  void generate_commitment(std::vector<ElectroneumTransferDetails> & mtds,
+  void generate_commitment(std::vector<BydotcoinTransferDetails> & mtds,
                            const std::vector<tools::wallet2::transfer_details> & transfers,
                            std::shared_ptr<messages::bydotcoin::ElectroneumKeyImageExportInitRequest> & req);
 
@@ -137,28 +137,28 @@ namespace ki {
    */
   void live_refresh_ack(const ::crypto::secret_key & view_key_priv,
                         const ::crypto::public_key& out_key,
-                        const std::shared_ptr<messages::bydotcoin::ElectroneumLiveRefreshStepAck> & ack,
+                        const std::shared_ptr<messages::bydotcoin::BydotcoinLiveRefreshStepAck> & ack,
                         ::cryptonote::keypair& in_ephemeral,
                         ::crypto::key_image& ki);
 }
 
 // Cold transaction signing
 namespace tx {
-  using TsxData = messages::bydotcoin::ElectroneumTransactionInitRequest_ElectroneumTransactionData;
-  using ElectroneumTransactionDestinationEntry = messages::bydotcoin::ElectroneumTransactionDestinationEntry;
-  using ElectroneumAccountPublicAddress = messages::bydotcoin::ElectroneumTransactionDestinationEntry_ElectroneumAccountPublicAddress;
-  using ElectroneumTransactionSourceEntry = messages::bydotcoin::ElectroneumTransactionSourceEntry;
-  using ElectroneumMultisigKLRki = messages::bydotcoin::ElectroneumTransactionSourceEntry_ElectroneumMultisigKLRki;
-  using ElectroneumOutputEntry = messages::bydotcoin::ElectroneumTransactionSourceEntry_ElectroneumOutputEntry;
-  using ElectroneumRctKey = messages::bydotcoin::ElectroneumTransactionSourceEntry_ElectroneumOutputEntry_ElectroneumRctKeyPublic;
-  using ElectroneumRsigData = messages::bydotcoin::ElectroneumTransactionRsigData;
+  using TsxData = messages::bydotcoin::BydotcoinTransactionInitRequest_BydotcoinTransactionData;
+  using BydotcoinTransactionDestinationEntry = messages::bydotcoin::BydotcoinTransactionDestinationEntry;
+  using ElectroneumAccountPublicAddress = messages::bydotcoin::BydotcoinTransactionDestinationEntry_ElectroneumAccountPublicAddress;
+  using BydotcoinTransactionSourceEntry = messages::bydotcoin::BydotcoinTransactionSourceEntry;
+  using ElectroneumMultisigKLRki = messages::bydotcoin::BydotcoinTransactionSourceEntry_ElectroneumMultisigKLRki;
+  using ElectroneumOutputEntry = messages::bydotcoin::BydotcoinTransactionSourceEntry_ElectroneumOutputEntry;
+  using ElectroneumRctKey = messages::bydotcoin::BydotcoinTransactionSourceEntry_ElectroneumOutputEntry_ElectroneumRctKeyPublic;
+  using ElectroneumRsigData = messages::bydotcoin::BydotcoinTransactionRsigData;
 
   using tx_construction_data = tools::wallet2::tx_construction_data;
   using unsigned_tx_set = tools::wallet2::unsigned_tx_set;
 
   void translate_address(ElectroneumAccountPublicAddress * dst, const cryptonote::account_public_address * src);
-  void translate_dst_entry(ElectroneumTransactionDestinationEntry * dst, const cryptonote::tx_destination_entry * src);
-  void translate_src_entry(ElectroneumTransactionSourceEntry * dst, const cryptonote::tx_source_entry * src);
+  void translate_dst_entry(BydotcoinTransactionDestinationEntry * dst, const cryptonote::tx_destination_entry * src);
+  void translate_src_entry(BydotcoinTransactionSourceEntry * dst, const cryptonote::tx_source_entry * src);
   void translate_klrki(ElectroneumMultisigKLRki * dst, const rct::multisig_kLRki * src);
   void translate_rct_key(ElectroneumRctKey * dst, const rct::ctkey * src);
   std::string hash_addr(const ElectroneumAccountPublicAddress * addr, boost::optional<uint64_t> amount = boost::none, boost::optional<bool> is_subaddr = boost::none);
@@ -229,42 +229,42 @@ namespace tx {
     void extract_payment_id();
     void compute_integrated_indices(TsxData * tsx_data);
     bool should_compute_bp_now() const;
-    void compute_bproof(messages::bydotcoin::ElectroneumTransactionRsigData & rsig_data);
+    void compute_bproof(messages::bydotcoin::BydotcoinTransactionRsigData & rsig_data);
     void process_bproof(rct::Bulletproof & bproof);
 
   public:
     Signer(wallet_shim * wallet2, const unsigned_tx_set * unsigned_tx, size_t tx_idx = 0, hw::tx_aux_data * aux_data = nullptr);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionInitRequest> step_init();
-    void step_init_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionInitAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionInitRequest> step_init();
+    void step_init_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionInitAck> ack);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSetInputRequest> step_set_input(size_t idx);
-    void step_set_input_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSetInputAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionSetInputRequest> step_set_input(size_t idx);
+    void step_set_input_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionSetInputAck> ack);
 
     void sort_ki();
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionInputsPermutationRequest> step_permutation();
-    void step_permutation_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionInputsPermutationAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionInputsPermutationRequest> step_permutation();
+    void step_permutation_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionInputsPermutationAck> ack);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionInputViniRequest> step_set_vini_input(size_t idx);
-    void step_set_vini_input_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionInputViniAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionInputViniRequest> step_set_vini_input(size_t idx);
+    void step_set_vini_input_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionInputViniAck> ack);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionAllInputsSetRequest> step_all_inputs_set();
-    void step_all_inputs_set_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionAllInputsSetAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionAllInputsSetRequest> step_all_inputs_set();
+    void step_all_inputs_set_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionAllInputsSetAck> ack);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSetOutputRequest> step_set_output(size_t idx);
-    void step_set_output_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSetOutputAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionSetOutputRequest> step_set_output(size_t idx);
+    void step_set_output_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionSetOutputAck> ack);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSetOutputRequest> step_rsig(size_t idx);
-    void step_set_rsig_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSetOutputAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionSetOutputRequest> step_rsig(size_t idx);
+    void step_set_rsig_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionSetOutputAck> ack);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionAllOutSetRequest> step_all_outs_set();
-    void step_all_outs_set_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionAllOutSetAck> ack, hw::device &hwdev);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionAllOutSetRequest> step_all_outs_set();
+    void step_all_outs_set_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionAllOutSetAck> ack, hw::device &hwdev);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionSignInputRequest> step_sign_input(size_t idx);
-    void step_sign_input_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionSignInputAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionSignInputRequest> step_sign_input(size_t idx);
+    void step_sign_input_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionSignInputAck> ack);
 
-    std::shared_ptr<messages::bydotcoin::ElectroneumTransactionFinalRequest> step_final();
-    void step_final_ack(std::shared_ptr<const messages::bydotcoin::ElectroneumTransactionFinalAck> ack);
+    std::shared_ptr<messages::bydotcoin::BydotcoinTransactionFinalRequest> step_final();
+    void step_final_ack(std::shared_ptr<const messages::bydotcoin::BydotcoinTransactionFinalAck> ack);
 
     std::string store_tx_aux_info();
 

@@ -2,7 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
-    <name>Electroneum::AddressBookImpl</name>
+    <name>Bydotcoin::AddressBookImpl</name>
     <message>
         <location filename="../src/wallet/api/address_book.cpp" line="55"/>
         <source>Invalid destination address</source>
@@ -25,7 +25,7 @@
     </message>
 </context>
 <context>
-    <name>Electroneum::PendingTransactionImpl</name>
+    <name>Bydotcoin::PendingTransactionImpl</name>
     <message>
         <location filename="../src/wallet/api/pending_transaction.cpp" line="90"/>
         <source>Attempting to save transaction to file, but specified file(s) exist. Exiting to not risk overwriting. File:</source>
@@ -68,7 +68,7 @@
     </message>
 </context>
 <context>
-    <name>Electroneum::UnsignedTransactionImpl</name>
+    <name>Bydotcoin::UnsignedTransactionImpl</name>
     <message>
         <location filename="../src/wallet/api/unsigned_transaction.cpp" line="75"/>
         <source>This is a watch only wallet</source>
@@ -122,7 +122,7 @@
     </message>
 </context>
 <context>
-    <name>Electroneum::WalletImpl</name>
+    <name>Bydotcoin::WalletImpl</name>
     <message>
         <location filename="../src/wallet/api/wallet.cpp" line="942"/>
         <source>payment id has invalid format, expected 16 or 64 character hex string: </source>
@@ -316,7 +316,7 @@
     </message>
 </context>
 <context>
-    <name>Electroneum::WalletManagerImpl</name>
+    <name>Bydotcoin::WalletManagerImpl</name>
     <message>
         <location filename="../src/wallet/api/wallet_manager.cpp" line="192"/>
         <source>failed to parse txid</source>
